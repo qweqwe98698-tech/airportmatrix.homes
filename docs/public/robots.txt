@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Disallow internal search or private paths if any
+Disallow: /api/
+Disallow: /scratch/
+
+# Specific major search engine bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Sitemap definition
+Sitemap: https://airportmatrix.homes/sitemap.xml

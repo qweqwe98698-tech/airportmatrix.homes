@@ -1,0 +1,44 @@
+{
+  "name": "airportmatrix-homes",
+  "version": "6.0.0",
+  "description": "全球机场 - 森林自然知识屋与 AirportMatrix X 6.0 全矩阵 SEO 评测系统",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs --port 5173",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "test:e2e": "playwright test",
+    "seo:check": "node scripts/seo-health-check.mjs",
+    "seo:indexnow": "node scripts/indexnow.mjs",
+    "seo:release": "npm run build && node scripts/seo-health-check.mjs"
+  },
+  "keywords": [
+    "airportmatrix",
+    "机场推荐",
+    "2026机场推荐",
+    "稳定专线",
+    "IEPL",
+    "IPLC",
+    "Clash",
+    "Shadowrocket",
+    "ChatGPT",
+    "VitePress"
+  ],
+  "author": "AirportMatrix Editorial Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.2",
+    "autoprefixer": "^10.4.20",
+    "clsx": "^2.1.1",
+    "lucide-vue-next": "^0.469.0",
+    "postcss": "^8.4.49",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss": "^3.4.17",
+    "vitepress": "^1.5.0",
+    "vitepress-plugin-pagefind": "^0.3.1"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  }
+}
