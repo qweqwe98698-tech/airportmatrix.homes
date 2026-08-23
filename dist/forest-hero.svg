@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- 背景与光束渐变 -->
+    <radialGradient id="sunbeamGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#E8F7EB" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#D9F2D9" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#F6FBF5" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 树冠丰富层次渐变 -->
+    <linearGradient id="foliageTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#98D8A8"/>
+      <stop offset="100%" stop-color="#65B581"/>
+    </linearGradient>
+    <linearGradient id="foliageMid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#55A672"/>
+      <stop offset="100%" stop-color="#34754A"/>
+    </linearGradient>
+    <linearGradient id="foliageDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#366B44"/>
+      <stop offset="100%" stop-color="#1F472B"/>
+    </linearGradient>
+
+    <!-- 树干古木质感 -->
+    <linearGradient id="ancientWood" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#63401E"/>
+      <stop offset="30%" stop-color="#8C5C32"/>
+      <stop offset="70%" stop-color="#A57342"/>
+      <stop offset="100%" stop-color="#543619"/>
+    </linearGradient>
+
+    <!-- 浮岛与苔藓地台 -->
+    <linearGradient id="islandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6FB383"/>
+      <stop offset="30%" stop-color="#4F8E62"/>
+      <stop offset="75%" stop-color="#664627"/>
+      <stop offset="100%" stop-color="#452E18"/>
+    </linearGradient>
+
+    <!-- 磨砂玻璃卡片 -->
+    <linearGradient id="glassBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#F7FAF7" stop-opacity="0.88"/>
+    </linearGradient>
+
+    <!-- 发光金色光纤 -->
+    <linearGradient id="goldFiber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFEAA7"/>
+      <stop offset="50%" stop-color="#78B890"/>
+      <stop offset="100%" stop-color="#437857"/>
+    </linearGradient>
+
+    <!-- 柔和阴影 -->
+    <filter id="heroCardShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#1A3822" flood-opacity="0.12"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1A3822" flood-opacity="0.08"/>
+    </filter>
+
+    <filter id="fairyAura" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- 1. 背景光环与神光漫射 -->
+  <circle cx="320" cy="240" r="230" fill="url(#sunbeamGlow)"/>
+  
+  <!-- 2. 远景森林与群山层叠 -->
+  <path d="M40,360 Q180,310 320,340 T600,350 L600,460 L40,460 Z" fill="#E2F0E3" opacity="0.65"/>
+  <path d="M80,375 Q220,335 340,360 T560,370 L560,460 L80,460 Z" fill="#CDE6D0" opacity="0.75"/>
+
+  <!-- 3. 悬浮自然浮岛 (Mossy Floating Island) -->
+  <g filter="url(#heroCardShadow)">
+    <!-- 浮岛底座岩石 -->
+    <path d="M120,405 C140,465 240,480 320,480 C400,480 500,465 520,405 C460,375 180,375 120,405 Z" fill="url(#islandGrad)"/>
+    <!-- 浮岛顶部嫩绿草坪 -->
+    <ellipse cx="320" cy="402" rx="195" ry="32" fill="#78B890"/>
+    <ellipse cx="320" cy="399" rx="180" ry="26" fill="#8ED2A4"/>
+  </g>
+
+  <!-- 4. 脉动发光数据光纤根系 (Golden & Green Fiber Roots) -->
+  <path d="M300,340 Q250,385 180,410" stroke="url(#goldFiber)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="5 5" opacity="0.85"/>
+  <path d="M340,340 Q390,385 460,410" stroke="url(#goldFiber)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="5 5" opacity="0.85"/>
+  <path d="M320,320 L320,415" stroke="#FFEAA7" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="180" cy="410" r="4.5" fill="#FFEAA7"/>
+  <circle cx="460" cy="410" r="4.5" fill="#78B890"/>
+
+  <!-- 5. 智慧古树干与自然知识树屋 (Treehouse & Trunk) -->
+  <path d="M295,240 Q285,320 270,395 L370,395 Q355,320 345,240 Z" fill="url(#ancientWood)"/>
+  <!-- 树皮木纹 -->
+  <path d="M305,270 Q300,330 290,385" stroke="#4A2E13" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <path d="M335,265 Q340,325 350,385" stroke="#4A2E13" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- 知识树屋小木窗与温馨暖光 -->
+  <rect x="306" y="300" width="28" height="36" rx="14" fill="#3D230D"/>
+  <rect x="309" y="303" width="22" height="30" rx="11" fill="#FFEAA7"/>
+  <path d="M320,303 L320,333 M309,318 L331,318" stroke="#8C5C32" stroke-width="2"/>
+  <!-- 窗户暖光外溢 -->
+  <circle cx="320" cy="318" r="18" fill="#FFEAA7" opacity="0.35"/>
+
+  <!-- 6. 丰富层次的繁茂树冠 (Tiered Foliage Canopy) -->
+  <!-- 底层深绿 -->
+  <circle cx="240" cy="225" r="62" fill="url(#foliageDark)"/>
+  <circle cx="400" cy="225" r="62" fill="url(#foliageDark)"/>
+  <!-- 中层翠绿 -->
+  <circle cx="215" cy="180" r="54" fill="url(#foliageMid)"/>
+  <circle cx="425" cy="180" r="54" fill="url(#foliageMid)"/>
+  <circle cx="320" cy="205" r="80" fill="url(#foliageMid)"/>
+  <!-- 顶层嫩绿与高光 -->
+  <circle cx="270" cy="135" r="52" fill="url(#foliageTop)"/>
+  <circle cx="370" cy="135" r="52" fill="url(#foliageTop)"/>
+  <circle cx="320" cy="105" r="44" fill="#A8E4B8"/>
+  <circle cx="320" cy="85" r="28" fill="#C5F2D2"/>
+
+  <!-- 树冠装饰花果与微光果实 -->
+  <circle cx="210" cy="165" r="5" fill="#FFEAA7"/>
+  <circle cx="430" cy="170" r="5.5" fill="#FFEAA7"/>
+  <circle cx="275" cy="105" r="6" fill="#FFEAA7"/>
+  <circle cx="365" cy="95" r="5" fill="#FFEAA7"/>
+  <circle cx="320" cy="170" r="4" fill="#FFFFFF" opacity="0.8"/>
+
+  <!-- 7. 悬浮数据卡片 1 (左侧上部)：IEPL 专线实测 -->
+  <g transform="translate(30, 110)" filter="url(#heroCardShadow)">
+    <rect x="0" y="0" width="195" height="76" rx="18" fill="url(#glassBg)" stroke="#D8EADB" stroke-width="1.5"/>
+    <rect x="0" y="0" width="195" height="6" rx="3" fill="#78B890"/>
+    <rect x="12" y="18" width="38" height="38" rx="12" fill="#E8F7EB"/>
+    <text x="31" y="43" font-size="20" text-anchor="middle">⚡</text>
+    <text x="58" y="34" font-size="13" font-weight="bold" fill="#1C3822" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">IEPL 专线实测</text>
+    <text x="58" y="52" font-size="11" font-weight="bold" fill="#437857" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">晚高峰 0 丢包 · 28ms</text>
+    <rect x="58" y="58" width="56" height="14" rx="4" fill="#D9F2D9"/>
+    <text x="86" y="68" font-size="9" font-weight="bold" fill="#2D5A34" text-anchor="middle">24h 实时压测</text>
+  </g>
+
+  <!-- 8. 悬浮数据卡片 2 (右侧中部)：Netflix & 4K 秒开 -->
+  <g transform="translate(415, 230)" filter="url(#heroCardShadow)">
+    <rect x="0" y="0" width="200" height="76" rx="18" fill="url(#glassBg)" stroke="#DEC8AF" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="6" rx="3" fill="#C89666"/>
+    <rect x="12" y="18" width="38" height="38" rx="12" fill="#FFF4E6"/>
+    <text x="31" y="43" font-size="20" text-anchor="middle">🍿</text>
+    <text x="58" y="34" font-size="13" font-weight="bold" fill="#2A1B0E" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">Netflix / 4K 原画</text>
+    <text x="58" y="52" font-size="11" font-weight="bold" fill="#D97706" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">800+ Mbps 瞬时缓冲</text>
+    <rect x="58" y="58" width="66" height="14" rx="4" fill="#FEF3C7"/>
+    <text x="91" y="68" font-size="9" font-weight="bold" fill="#92400E" text-anchor="middle">全区片库解锁</text>
+  </g>
+
+  <!-- 9. 悬浮数据卡片 3 (左侧下部)：ChatGPT 原生解锁 -->
+  <g transform="translate(45, 260)" filter="url(#heroCardShadow)">
+    <rect x="0" y="0" width="185" height="70" rx="16" fill="url(#glassBg)" stroke="#D8EADB" stroke-width="1.5"/>
+    <rect x="0" y="0" width="185" height="5" rx="2.5" fill="#5E9E76"/>
+    <rect x="12" y="16" width="36" height="36" rx="10" fill="#EDF7EE"/>
+    <text x="30" y="40" font-size="18" text-anchor="middle">🤖</text>
+    <text x="56" y="32" font-size="12" font-weight="bold" fill="#1C3822" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">ChatGPT &amp; Claude</text>
+    <text x="56" y="49" font-size="11" font-weight="bold" fill="#2D5A34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">100% 纯净原生 IP</text>
+  </g>
+
+  <!-- 10. 森之精灵 芽芽 (Fairy Sprite) 守护者 -->
+  <g transform="translate(385, 60)" filter="url(#fairyAura)">
+    <!-- 晶莹发光翅膀 -->
+    <ellipse cx="20" cy="30" rx="20" ry="11" fill="#D9F2D9" opacity="0.8" transform="rotate(-35 20 30)"/>
+    <ellipse cx="55" cy="30" rx="20" ry="11" fill="#D9F2D9" opacity="0.8" transform="rotate(35 55 30)"/>
+    <!-- 精灵本体光晕 -->
+    <circle cx="38" cy="36" r="20" fill="#78B890"/>
+    <circle cx="38" cy="36" r="16" fill="#A8E4B8"/>
+    <text x="38" y="43" font-size="20" text-anchor="middle">🧚</text>
+    <!-- 环绕微光粒子 -->
+    <circle cx="12" cy="14" r="3.5" fill="#FFEAA7"/>
+    <circle cx="68" cy="20" r="3" fill="#FFEAA7"/>
+    <circle cx="42" cy="68" r="2.5" fill="#FFEAA7"/>
+  </g>
+
+  <!-- 11. 飘落的自然绿叶与微光 -->
+  <g transform="translate(190, 70) rotate(20)" opacity="0.85">
+    <path d="M0,0 Q12,-6 24,0 Q12,12 0,0 Z" fill="#78B890"/>
+    <path d="M0,0 L24,0" stroke="#5E9E76" stroke-width="1"/>
+  </g>
+  <g transform="translate(480, 140) rotate(-35)" opacity="0.75">
+    <path d="M0,0 Q10,-5 20,0 Q10,10 0,0 Z" fill="#98D8A8"/>
+  </g>
+  <g transform="translate(160, 220) rotate(45)" opacity="0.8">
+    <path d="M0,0 Q8,-4 16,0 Q8,8 0,0 Z" fill="#5E9E76"/>
+  </g>
+  <g transform="translate(490, 360) rotate(-15)" opacity="0.85">
+    <path d="M0,0 Q12,-6 24,0 Q12,12 0,0 Z" fill="#78B890"/>
+  </g>
+</svg>
