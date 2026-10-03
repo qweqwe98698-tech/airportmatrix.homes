@@ -8,7 +8,7 @@ const distDir = path.resolve(__dirname, '..', 'docs', '.vitepress', 'dist')
 const sitemapFile = path.join(distDir, 'sitemap.xml')
 
 const DOMAIN = 'airportmatrix.homes'
-const KEY = 'e3b0c44298fc1c149afbf4c8996fb924'
+const KEY = '6852be576ce04ed19719c02d582b180a'
 const KEY_LOCATION = `https://${DOMAIN}/${KEY}.txt`
 
 async function submitIndexNow() {
