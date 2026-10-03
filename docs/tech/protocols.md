@@ -1,5 +1,5 @@
 ---
-title: 科学上网主流协议对比 2026 · Shadowsocks / VLESS / Trojan / Hysteria2
+title: 科学上网主流代理协议横评 2026 · SS / VLESS / Trojan / Hy2
 description: 2026年主流代理协议深度横向测评。从加密机制、抗封锁能力、CPU开销、UDP传输及晚高峰吞吐率，全面对比Shadowsocks 2022、VLESS Reality、Trojan与Hysteria2。
 ---
 
