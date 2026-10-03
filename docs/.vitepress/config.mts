@@ -86,8 +86,8 @@ export default defineConfig({
           ])
         }
 
-        // 2. 深度评测页 Article + BreadcrumbList Schema
-        if (cleanPath.startsWith('ranking/') && cleanPath !== 'ranking' && cleanPath !== 'ranking/stable' && cleanPath !== 'ranking/budget' && cleanPath !== 'ranking/iepl-iplc') {
+        // 2. 深度评测页与矩阵专线深度文章 Article + BreadcrumbList Schema
+        if ((cleanPath.startsWith('ranking/') && cleanPath !== 'ranking' && cleanPath !== 'ranking/stable' && cleanPath !== 'ranking/budget' && cleanPath !== 'ranking/iepl-iplc') || (cleanPath.startsWith('matrix/') && cleanPath !== 'matrix')) {
           headTags.push([
             'script',
             { type: 'application/ld+json' },
@@ -118,7 +118,7 @@ export default defineConfig({
               '@type': 'BreadcrumbList',
               'itemListElement': [
                 { '@type': 'ListItem', 'position': 1, 'name': '首页', 'item': 'https://airportmatrix.homes/' },
-                { '@type': 'ListItem', 'position': 2, 'name': '机场排行榜', 'item': 'https://airportmatrix.homes/ranking/' },
+                { '@type': 'ListItem', 'position': 2, 'name': cleanPath.startsWith('matrix/') ? 'SEO/GEO 深度矩阵' : '机场排行榜', 'item': cleanPath.startsWith('matrix/') ? 'https://airportmatrix.homes/matrix/' : 'https://airportmatrix.homes/ranking/' },
                 { '@type': 'ListItem', 'position': 3, 'name': pageData.title, 'item': canonicalUrl }
               ]
             })
@@ -310,6 +310,7 @@ export default defineConfig({
           { text: '国外网站打不开急救', link: '/website/cannot-open-websites' },
           { text: 'Google / 学术搜索访问', link: '/website/google-access' },
           { text: 'GitHub 加速与 clone 提速', link: '/website/github-speedup' },
+          { text: '🌐 SEO/GEO 深度矩阵', link: '/matrix/' },
           { text: '原生 IP 与住宅家宽解析', link: '/tech/native-residential-ip' },
           { text: 'IEPL 与 IPLC 专线解析', link: '/tech/iepl-vs-iplc' },
           { text: '主流协议对比 (SS/VLESS)', link: '/tech/protocols' }
@@ -467,6 +468,17 @@ export default defineConfig({
             { text: 'Google / 学术搜索打不开', link: '/website/google-access' },
             { text: 'YouTube 视频卡顿一直转圈', link: '/website/youtube-buffer-fix' },
             { text: 'GitHub 打不开与 clone 慢提速', link: '/website/github-speedup' },
+          ]
+        }
+      ],
+
+      '/matrix/': [
+        {
+          text: '🌐 SEO / GEO 深度研究矩阵',
+          items: [
+            { text: '矩阵文献库总览', link: '/matrix/' },
+            { text: 'IEPL 与 IPLC 物理光纤专线跨境传输原理...', link: '/matrix/iepl-iplc-physical-latency-limits-analysis' },
+            { text: '返回机场天梯排行榜', link: '/ranking/' }
           ]
         }
       ]
