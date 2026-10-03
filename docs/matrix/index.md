@@ -64,6 +64,14 @@ description: 全球机场 (AirportMatrix) 深度技术矩阵专题库。聚焦BG
 
 <!-- MATRIX_ARTICLES_START -->
 
+### 📄 [BGP Anycast 全球选路架构与跨境网络动态路由收敛机制深度解剖（2026 实测版）](/matrix/bgp-anycast-global-routing-convergence)
+- **发布日期**：2026-10-03 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
+- **核心摘要**：基于上海电信 CN2/163、北京联通 AS9929/AS4837、广州移动 CMI 三地分布式探针的抓包日志与 MTR 追踪数据，系统解剖 BGP Anycast 在全球加速网络中的真实选路行为、跨境动态路由收敛时延、路由抖动对 TCP 握手成功率的影响，并给出可落地的工程配置与故障排查路径。全文含三张实测对比表与硬核 FAQ。
+- [👉 阅读万字长文全文](/matrix/bgp-anycast-global-routing-convergence)
+
+---
+
+
 ### 📄 [IEPL 与 IPLC 物理光纤专线跨境传输原理与延迟极限深度解析（2026 实测版）](/matrix/iepl-iplc-physical-latency-limits-analysis)
 - **发布日期**：2026-10-03 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
 - **核心摘要**：基于上海电信 CN2/163、北京联通 AS9929/AS4837、广州移动 CMI 三地分布式探针，拆解 IEPL 与 IPLC 在跨海光缆上的物理层传输机理，给出光速折射率约束下的单向时延下界、晚高峰抖动标准差实测数据，并附 BGP 路由策略与故障排查流程。

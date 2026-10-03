@@ -477,6 +477,7 @@ export default defineConfig({
           text: '🌐 SEO / GEO 深度研究矩阵',
           items: [
             { text: '矩阵文献库总览', link: '/matrix/' },
+            { text: 'BGP Anycast 全球选路架构与跨境网络动...', link: '/matrix/bgp-anycast-global-routing-convergence' },
             { text: 'IEPL 与 IPLC 物理光纤专线跨境传输原理...', link: '/matrix/iepl-iplc-physical-latency-limits-analysis' },
             { text: '返回机场天梯排行榜', link: '/ranking/' }
           ]
