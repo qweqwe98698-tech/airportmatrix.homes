@@ -131,7 +131,7 @@
               <a 
                 :href="item.affUrl" 
                 target="_blank" 
-                rel="noopener noreferrer" 
+                rel="nofollow sponsored noopener" 
                 class="inline-flex items-center justify-center gap-1 px-3 py-1.2 text-xs rounded-leaf bg-[#78B890] hover:bg-[#5E9E76] text-white font-bold shadow-sm transition-all !text-white !no-underline hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
                 style="text-decoration: none !important;"
               >
@@ -182,7 +182,7 @@
               <a 
                 :href="modalBrand?.affUrl" 
                 target="_blank" 
-                rel="noopener noreferrer" 
+                rel="nofollow sponsored noopener" 
                 class="px-3.5 py-1.5 rounded-leaf bg-[#78B890] hover:bg-[#5E9E76] text-white text-xs font-semibold !text-white no-underline"
               >
                 前往 {{ modalBrand?.name }} 官网

@@ -86,7 +86,7 @@
           <a
             :href="item.affUrl"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow sponsored noopener"
             class="flex-1 text-center py-2 px-2.5 rounded-xl bg-[#246B45] hover:bg-[#1D5436] text-white font-bold text-xs shadow-sm transition-all !no-underline !text-white"
           >
             直达官网 →

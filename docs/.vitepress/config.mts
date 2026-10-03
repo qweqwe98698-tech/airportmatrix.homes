@@ -13,6 +13,9 @@ export default defineConfig({
 
   sitemap: {
     hostname: 'https://airportmatrix.homes',
+    transformItems(items) {
+      return items.filter(item => !item.url.includes('404'))
+    }
   },
 
   transformHead({ pageData }) {
@@ -36,28 +39,41 @@ export default defineConfig({
       ['meta', { name: 'twitter:description', content: pageData.description || '2026权威稳定机场推荐与流媒体/AI解锁测评矩阵' }]
     ]
 
-    // 动态提取正文中的 FAQ 问答并生成 Schema.org FAQPage JSON-LD
     try {
       const mdFilePath = path.resolve(process.cwd(), 'docs', pageData.relativePath)
       if (fs.existsSync(mdFilePath)) {
         const mdContent = fs.readFileSync(mdFilePath, 'utf-8')
-        const faqMatches = mdContent.matchAll(/:::\s*details\s+(.*?)\n([\s\S]*?):::/g)
-        const faqs = []
-        for (const match of faqMatches) {
+        
+        // 1. FAQPage Schema.org 动态提取
+        const faqs: any[] = []
+        // 模式 A: ::: details 问答框
+        const detailsMatches = mdContent.matchAll(/:::\s*details\s+(.*?)\n([\s\S]*?):::/g)
+        for (const match of detailsMatches) {
           const rawQ = match[1].replace(/^\d+[\.\、\s]*/, '').trim()
           const rawA = match[2].replace(/<[^>]+>/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/\n+/g, ' ').trim()
           if (rawQ && rawA) {
             faqs.push({
               '@type': 'Question',
               'name': rawQ,
-              'acceptedAnswer': {
-                '@type': 'Answer',
-                'text': rawA
-              }
+              'acceptedAnswer': { '@type': 'Answer', 'text': rawA }
             })
           }
         }
-
+        // 模式 B: ### 常见问题问答
+        const headingFaqMatches = mdContent.matchAll(/###\s*(?:Q\d*[:：\s]*|\d+[\.、\s]*)?([^#\n\?？]+[\?？]?)\n([\s\S]*?)(?=\n###|\n##|$)/g)
+        for (const match of headingFaqMatches) {
+          const rawQ = match[1].trim()
+          if (rawQ.includes('?') || rawQ.includes('？') || rawQ.includes('吗') || rawQ.includes('么') || rawQ.includes('如何') || rawQ.includes('为什么') || rawQ.includes('怎么办')) {
+            const rawA = match[2].replace(/<[^>]+>/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/\n+/g, ' ').trim().slice(0, 300)
+            if (rawQ && rawA && rawA.length > 10) {
+              faqs.push({
+                '@type': 'Question',
+                'name': rawQ,
+                'acceptedAnswer': { '@type': 'Answer', 'text': rawA }
+              })
+            }
+          }
+        }
         if (faqs.length > 0) {
           headTags.push([
             'script',
@@ -65,7 +81,89 @@ export default defineConfig({
             JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'FAQPage',
-              'mainEntity': faqs
+              'mainEntity': faqs.slice(0, 10)
+            })
+          ])
+        }
+
+        // 2. 深度评测页 Article + BreadcrumbList Schema
+        if (cleanPath.startsWith('ranking/') && cleanPath !== 'ranking' && cleanPath !== 'ranking/stable' && cleanPath !== 'ranking/budget' && cleanPath !== 'ranking/iepl-iplc') {
+          headTags.push([
+            'script',
+            { type: 'application/ld+json' },
+            JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'TechArticle',
+              'headline': pageTitle,
+              'description': pageData.description || '2026权威稳定机场推荐与流媒体/AI解锁测评矩阵',
+              'inLanguage': 'zh-CN',
+              'url': canonicalUrl,
+              'author': {
+                '@type': 'Organization',
+                'name': 'AirportMatrix 实验室',
+                'url': 'https://airportmatrix.homes/about'
+              },
+              'publisher': {
+                '@type': 'Organization',
+                'name': 'AirportMatrix · 全球机场自然知识屋',
+                'url': 'https://airportmatrix.homes'
+              }
+            })
+          ])
+          headTags.push([
+            'script',
+            { type: 'application/ld+json' },
+            JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              'itemListElement': [
+                { '@type': 'ListItem', 'position': 1, 'name': '首页', 'item': 'https://airportmatrix.homes/' },
+                { '@type': 'ListItem', 'position': 2, 'name': '机场排行榜', 'item': 'https://airportmatrix.homes/ranking/' },
+                { '@type': 'ListItem', 'position': 3, 'name': pageData.title, 'item': canonicalUrl }
+              ]
+            })
+          ])
+        }
+
+        // 3. 榜单页 ItemList Schema
+        if (cleanPath === 'ranking' || cleanPath === 'ranking/stable' || cleanPath === 'ranking/budget' || cleanPath === 'ranking/iepl-iplc') {
+          headTags.push([
+            'script',
+            { type: 'application/ld+json' },
+            JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'ItemList',
+              'name': pageTitle,
+              'description': pageData.description,
+              'url': canonicalUrl,
+              'itemListElement': [
+                { '@type': 'ListItem', 'position': 1, 'name': '光速云 (老牌IEPL高可靠专线)' },
+                { '@type': 'ListItem', 'position': 2, 'name': '飞猫云 (平价轻度出海性价比首选)' },
+                { '@type': 'ListItem', 'position': 3, 'name': '微风网络 (平价专线与轻量月付)' },
+                { '@type': 'ListItem', 'position': 4, 'name': '星岛梦 (老牌不限时按量计费专线)' },
+                { '@type': 'ListItem', 'position': 5, 'name': '速界 (全节点流媒体与AI高解锁)' }
+              ]
+            })
+          ])
+        }
+
+        // 4. 关于页 AboutPage + Organization Schema
+        if (cleanPath === 'about') {
+          headTags.push([
+            'script',
+            { type: 'application/ld+json' },
+            JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'AboutPage',
+              'name': '关于 AirportMatrix 实验室',
+              'description': '全球机场独立评测矩阵与网络工程实验室',
+              'url': canonicalUrl,
+              'mainEntity': {
+                '@type': 'Organization',
+                'name': 'AirportMatrix Editorial Team',
+                'url': 'https://airportmatrix.homes',
+                'email': 'admin@airportmatrix.homes'
+              }
             })
           ])
         }
@@ -110,6 +208,41 @@ export default defineConfig({
         }
       })
     ]
+  },
+
+  markdown: {
+    config: (md) => {
+      const defaultRender = md.renderer.rules.link_open || function(tokens, idx, options, env, self) {
+        return self.renderToken(tokens, idx, options);
+      };
+      md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+        const hrefIndex = tokens[idx].attrIndex('href');
+        if (hrefIndex >= 0) {
+          const href = tokens[idx].attrs[hrefIndex][1];
+          if (/^https?:\/\//i.test(href)) {
+            if (!href.includes('airportmatrix.homes') && !href.includes('github.com')) {
+              const isAff = /aff|register|code=|invite|\.cc|\.com\/#\/\?|\/register\?/i.test(href);
+              const relIndex = tokens[idx].attrIndex('rel');
+              const targetIndex = tokens[idx].attrIndex('target');
+              
+              if (targetIndex < 0) {
+                tokens[idx].attrPush(['target', '_blank']);
+              } else {
+                tokens[idx].attrs[targetIndex][1] = '_blank';
+              }
+              
+              const relVal = isAff ? 'nofollow sponsored noopener' : 'noopener noreferrer';
+              if (relIndex < 0) {
+                tokens[idx].attrPush(['rel', relVal]);
+              } else {
+                tokens[idx].attrs[relIndex][1] = relVal;
+              }
+            }
+          }
+        }
+        return defaultRender(tokens, idx, options, env, self);
+      };
+    }
   },
 
   themeConfig: {
@@ -180,6 +313,15 @@ export default defineConfig({
           { text: '原生 IP 与住宅家宽解析', link: '/tech/native-residential-ip' },
           { text: 'IEPL 与 IPLC 专线解析', link: '/tech/iepl-vs-iplc' },
           { text: '主流协议对比 (SS/VLESS)', link: '/tech/protocols' }
+        ]
+      },
+      {
+        text: '📜 关于与合规',
+        items: [
+          { text: '🌿 关于我们 (About Us)', link: '/about' },
+          { text: '🔬 评测方法论 (Methodology)', link: '/methodology' },
+          { text: '💡 商业推广披露 (Disclosure)', link: '/disclosure' },
+          { text: '🛡️ 隐私政策与条款 (Privacy)', link: '/privacy' }
         ]
       }
     ],
@@ -350,7 +492,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: '🌱 森林精灵治愈风 · 纯净自然知识屋 | 基于 VitePress 极速构建',
+      message: '🌱 森林精灵治愈风 · 纯净自然知识屋 | <a href="/about">关于我们</a> · <a href="/methodology">评测方法论</a> · <a href="/disclosure">推广与返利披露</a> · <a href="/privacy">隐私政策</a>',
       copyright: 'Copyright © 2026 全球机场 (airportmatrix.homes) · 版权所有'
     }
   }

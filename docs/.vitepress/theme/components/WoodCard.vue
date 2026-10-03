@@ -79,7 +79,7 @@
           v-if="link" 
           :href="link" 
           target="_blank" 
-          rel="noopener noreferrer" 
+          rel="nofollow sponsored noopener" 
           class="inline-flex items-center gap-2 px-5 py-2 rounded-leaf bg-[#78B890] hover:bg-[#5E9E76] text-white font-semibold text-sm transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 no-underline !text-white"
         >
           <span>{{ linkText || '直达官网注册' }}</span>

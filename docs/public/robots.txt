@@ -18,5 +18,8 @@ Allow: /
 User-agent: Baiduspider
 Allow: /
 
+User-agent: yisouspider
+Allow: /
+
 # Sitemap definition
 Sitemap: https://airportmatrix.homes/sitemap.xml
