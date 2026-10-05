@@ -64,6 +64,14 @@ description: 全球机场 (AirportMatrix) 深度技术矩阵专题库。聚焦BG
 
 <!-- MATRIX_ARTICLES_START -->
 
+### 📄 [原生住宅双 ISP IP 纯净度检测体系与 AI 大模型风控对抗实战（2026 深度工程版）](/matrix/residential-dual-isp-ai-risk-mitigation)
+- **发布日期**：2026-10-05 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
+- **核心摘要**：基于上海电信 CN2/163、北京联通 AS9929/AS4837、广州移动 CMI 三地分布式探针，对原生住宅双 ISP IP 的 ASN 归属、rDNS、BGP 宣告路径、Scamalytics/IPQualityScore 欺诈评分与 Cloudflare Turnstile 通过率进行交叉实测，给出 OpenAI 风控触发阈值、MTU/MSS 分片影响与可复现的检测脚本，附故障排查流程与选型建议。
+- [👉 阅读万字长文全文](/matrix/residential-dual-isp-ai-risk-mitigation)
+
+---
+
+
 ### 📄 [BGP Anycast 全球选路架构与跨境网络动态路由收敛机制深度解剖（2026 实测版）](/matrix/bgp-anycast-global-routing-convergence)
 - **发布日期**：2026-10-03 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
 - **核心摘要**：基于上海电信 CN2/163、北京联通 AS9929/AS4837、广州移动 CMI 三地分布式探针的抓包日志与 MTR 追踪数据，系统解剖 BGP Anycast 在全球加速网络中的真实选路行为、跨境动态路由收敛时延、路由抖动对 TCP 握手成功率的影响，并给出可落地的工程配置与故障排查路径。全文含三张实测对比表与硬核 FAQ。
