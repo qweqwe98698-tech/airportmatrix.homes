@@ -64,6 +64,14 @@ description: 全球机场 (AirportMatrix) 深度技术矩阵专题库。聚焦BG
 
 <!-- MATRIX_ARTICLES_START -->
 
+### 📄 [Claude 与 ChatGPT 严苛风控机理解析与零封号静态环境搭建规范（2026 工程实测版）](/matrix/claude-chatgpt-anti-ban-static-network-environment)
+- **发布日期**：2026-10-09 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
+- **核心摘要**：基于分布式探针实测与风控数据库比对，拆解 Claude 封号与 ChatGPT 1020 的底层判定链路，给出静态住宅 IP、指纹浏览器、WebRTC 与 DNS 防污染的零封号环境搭建规范，附多运营商链路对比数据与故障排查流程。
+- [👉 阅读万字长文全文](/matrix/claude-chatgpt-anti-ban-static-network-environment)
+
+---
+
+
 ### 📄 [原生住宅双 ISP IP 纯净度检测体系与 AI 大模型风控对抗实战（2026 深度工程版）](/matrix/residential-dual-isp-ai-risk-mitigation)
 - **发布日期**：2026-10-05 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
 - **核心摘要**：基于上海电信 CN2/163、北京联通 AS9929/AS4837、广州移动 CMI 三地分布式探针，对原生住宅双 ISP IP 的 ASN 归属、rDNS、BGP 宣告路径、Scamalytics/IPQualityScore 欺诈评分与 Cloudflare Turnstile 通过率进行交叉实测，给出 OpenAI 风控触发阈值、MTU/MSS 分片影响与可复现的检测脚本，附故障排查流程与选型建议。
