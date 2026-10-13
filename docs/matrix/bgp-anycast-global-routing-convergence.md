@@ -1,8 +1,9 @@
 ---
 title: BGP Anycast 全球选路架构与跨境网络动态路由收敛机制深度解剖（2026 实测版）
 description: 基于上海电信 CN2/163、北京联通 AS9929/AS4837、广州移动 CMI 三地分布式探针的抓包日志与 MTR 追踪数据，系统解剖 BGP Anycast 在全球加速网络中的真实选路行为、跨境动态路由收敛时延、路由抖动对 TCP 握手成功率的影响，并给出可落地的工程配置与故障排查路径。全文含三张实测对比表与硬核 FAQ。
-slug: bgp-anycast-global-routing-convergence
 ---
+
+# BGP Anycast 全球选路架构与跨境网络动态路由收敛机制深度解剖（2026 实测版）
 
 ## 一、引言与物理工程现实
 

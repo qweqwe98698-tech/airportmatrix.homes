@@ -8,7 +8,7 @@ const rootDir = path.resolve(__dirname, '..')
 const distDir = path.join(rootDir, 'docs', '.vitepress', 'dist')
 const publicDir = path.join(rootDir, 'docs', 'public')
 
-const DOMAIN = 'https://airportmatrix.homes'
+const DOMAIN = 'https://airportmatrix.blog'
 const INDEXNOW_KEY = '6852be576ce04ed19719c02d582b180a'
 
 console.log('\n======================================================')
@@ -80,6 +80,19 @@ if (!fs.existsSync(sitemapFile)) {
   console.log(`   ✅ sitemap.xml 检查通过，共收录 ${stats.sitemapUrls} 个有效生产 URL。`)
 }
 
+// 3. 检查 sitemap-index.xml
+const sitemapIndexFile = path.join(distDir, 'sitemap-index.xml')
+if (!fs.existsSync(sitemapIndexFile)) {
+  warnings.push('sitemap-index.xml 文件在 dist 根目录不存在！')
+} else {
+  const indexContent = fs.readFileSync(sitemapIndexFile, 'utf-8')
+  if (!indexContent.includes('sitemapindex') || !indexContent.includes(`${DOMAIN}/sitemap.xml`)) {
+    errors.push('sitemap-index.xml 格式非法或未正确指向 sitemap.xml！')
+  } else {
+    console.log('   ✅ sitemap-index.xml 索引入口就绪。')
+  }
+}
+
 // 4. 扫描所有 HTML 页面进行深度 SEO 属性检查
 console.log('🔍 [3/8] 扫描全站 HTML 页面 (Canonical, Noindex, Title, Schema)...')
 
@@ -119,6 +132,9 @@ htmlFiles.forEach(file => {
     }
   } else {
     stats.indexablePages++
+    if (is404) {
+      errors.push(`CRITICAL: 404 页面 ${relPath} 缺失 noindex 标签（会导致 Soft 404 惩罚）！`)
+    }
   }
 
   // Canonical 检查
@@ -139,6 +155,8 @@ htmlFiles.forEach(file => {
         errors.push(`页面 ${relPath} 的 canonical 错误地指向了首页！`)
       }
     }
+  } else if (canonicalMatch) {
+    errors.push(`CRITICAL: 404 页面 ${relPath} 不应包含 canonical 标签！`)
   }
 
   // Title 检查
@@ -165,6 +183,8 @@ htmlFiles.forEach(file => {
     } else if (h1) {
       h1sMap.set(h1, relPath)
     }
+  } else if (!is404) {
+    errors.push(`CRITICAL: 页面 ${relPath} 缺失 <h1> 标签！`)
   }
 
   // Schema JSON-LD 检查

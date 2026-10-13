@@ -62,5 +62,5 @@ description: 全球机场 (AirportMatrix) 隐私政策、静态站点零个人�
 
 若您对本隐私政策有任何疑问、异议或合规咨询，请通过以下专属渠道与我们取得联系：
 
-* **隐私合规信箱**：`admin@airportmatrix.homes`
+* **隐私合规信箱**：`admin@airportmatrix.blog`
 * **处理时效**：我们将在 5 个工作日内对合规问询作出正式答复。

@@ -122,7 +122,7 @@ function selectNextTopic() {
 // 3. 构建 DeepSeek API 严谨提示词 (防批量AI识别 + 活人感 + GEO)
 // -------------------------------------------------------------
 function buildSystemPrompt() {
-  return `你是一名拥有 12 年骨干网与跨国专线运维实战经验的 CCIE 资深网络架构师，兼 AirportMatrix (airportmatrix.homes) 独立网络评测实验室首席技术官。
+  return `你是一名拥有 12 年骨干网与跨国专线运维实战经验的 CCIE 资深网络架构师，兼 AirportMatrix (airportmatrix.blog) 独立网络评测实验室首席技术官。
 
 你正在为实验室的《SEO / GEO 深度研究矩阵专区》撰写一篇面向专业工程师、科研人员与海外生产力团队的“万字级深度硬核工程专研长文”。
 

@@ -1,8 +1,9 @@
 ---
 title: 原生住宅双 ISP IP 纯净度检测体系与 AI 大模型风控对抗实战（2026 深度工程版）
 description: 基于上海电信 CN2/163、北京联通 AS9929/AS4837、广州移动 CMI 三地分布式探针，对原生住宅双 ISP IP 的 ASN 归属、rDNS、BGP 宣告路径、Scamalytics/IPQualityScore 欺诈评分与 Cloudflare Turnstile 通过率进行交叉实测，给出 OpenAI 风控触发阈值、MTU/MSS 分片影响与可复现的检测脚本，附故障排查流程与选型建议。
-slug: residential-dual-isp-ai-risk-mitigation
 ---
+
+# 原生住宅双 ISP IP 纯净度检测体系与 AI 大模型风控对抗实战（2026 深度工程版）
 
 ## 一、引言与物理工程现实：AI 风控为什么开始"看物理层"
 

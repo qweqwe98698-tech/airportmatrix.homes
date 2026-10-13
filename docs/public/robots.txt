@@ -22,4 +22,5 @@ User-agent: yisouspider
 Allow: /
 
 # Sitemap definition
-Sitemap: https://airportmatrix.homes/sitemap.xml
+Sitemap: https://airportmatrix.blog/sitemap-index.xml
+Sitemap: https://airportmatrix.blog/sitemap.xml

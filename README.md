@@ -1,7 +1,7 @@
 # 🌿 AirportMatrix · 全球网络访问与机场推荐知识库
 
 <p align="center">
-  <a href="https://airportmatrix.homes">
+  <a href="https://airportmatrix.blog">
     <img src="./docs/public/forest-hero-3d.png" alt="AirportMatrix Hero Artwork" width="600" style="border-radius: 24px; box-shadow: 0 20px 50px rgba(36, 107, 69, 0.2);" />
   </a>
 </p>
@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://airportmatrix.homes"><img src="https://img.shields.io/badge/Production-airportmatrix.homes-246B45?style=flat-square&logo=safari&logoColor=white" alt="Live Website"></a>
+  <a href="https://airportmatrix.blog"><img src="https://img.shields.io/badge/Production-airportmatrix.blog-246B45?style=flat-square&logo=safari&logoColor=white" alt="Live Website"></a>
   <img src="https://img.shields.io/badge/Framework-VitePress%20v1.6-437857?style=flat-square&logo=vite&logoColor=white" alt="VitePress">
   <img src="https://img.shields.io/badge/UI%20Tech-Vue%203%20%2B%20TailwindCSS-38BDF8?style=flat-square&logo=vuedotjs&logoColor=white" alt="Vue 3 & TailwindCSS">
   <img src="https://img.shields.io/badge/Testing-Playwright%2012%2F12%20Pass-10B981?style=flat-square&logo=playwright&logoColor=white" alt="Playwright Test Pass">
@@ -24,7 +24,7 @@
 
 ## 📖 项目简介 (Overview)
 
-**AirportMatrix (airportmatrix.homes)** 是一个专注于跨境网络加速方案、IEPL/IPLC 企业级专线测评、全平台客户端图文教程及 AI 大模型访问指南的**现代自然科技风内容矩阵知识库**。
+**AirportMatrix (airportmatrix.blog)** 是一个专注于跨境网络加速方案、IEPL/IPLC 企业级专线测评、全平台客户端图文教程及 AI 大模型访问指南的**现代自然科技风内容矩阵知识库**。
 
 项目以 **“客观实测、拒绝虚标、杜绝跑路”** 为准则，融合了温馨治愈的**森林生态美学**与硬核的**专线网络技术**，建立起覆盖 **46 篇深度结构化文献、2,286 处内部链接、全自动化 SEO 索引安全门禁** 的现代化知识库系统。
 
@@ -75,7 +75,7 @@
 ## 📁 目录结构 (Directory Structure)
 
 ```text
-airportmatrix.homes/
+airportmatrix.blog/
 ├── docs/
 │   ├── .vitepress/
 │   │   ├── config.mts              # VitePress 全局配置、路由导航与 SEO Schema 生成器
@@ -125,8 +125,8 @@ airportmatrix.homes/
 ### 1. 克隆项目与安装依赖
 
 ```bash
-git clone https://github.com/qweqwe98698-tech/airportmatrix.homes.git
-cd airportmatrix.homes
+git clone https://github.com/qweqwe98698-tech/airportmatrix.blog.git
+cd airportmatrix.blog
 
 # 安装项目依赖
 npm install
@@ -205,5 +205,5 @@ E2E 自动化测试 (npm run test:e2e)
 ---
 
 <p align="center">
-  Made with 🌿 and ⚡ by <a href="https://airportmatrix.homes">AirportMatrix Lab</a> · 2026
+  Made with 🌿 and ⚡ by <a href="https://airportmatrix.blog">AirportMatrix Lab</a> · 2026
 </p>
