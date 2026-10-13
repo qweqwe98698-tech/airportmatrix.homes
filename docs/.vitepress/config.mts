@@ -190,6 +190,7 @@ export default defineConfig({
   },
 
   head: [
+    ['meta', { name: 'msvalidate.01', content: '479A9F8B69BC1D5D950E6FD1FB5039C0' }],
     ['link', { rel: 'icon', href: 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>' }],
     ['meta', { name: 'theme-color', content: '#78B890' }],
     ['meta', { name: 'keywords', content: '机场推荐, 2026机场推荐, 稳定机场推荐, 便宜机场推荐, 专线机场推荐, 机场排行榜, 机场天梯榜, Clash免费节点, ChatGPT打不开' }],
