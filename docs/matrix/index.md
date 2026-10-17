@@ -64,6 +64,14 @@ description: 全球机场 (AirportMatrix) 深度技术矩阵专题库。聚焦BG
 
 <!-- MATRIX_ARTICLES_START -->
 
+### 📄 [Shadowsocks 2022 与 VLESS Reality 深度实测：2026 年密码工程、CPU 开销与抗审查吞吐基准](/matrix/ss2022-vless-reality-performance-benchmarks)
+- **发布日期**：2026-10-17 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
+- **核心摘要**：基于上海电信 CN2、北京联通 AS9929、广州移动 CMI 三地分布式探针，对 Shadowsocks 2022（AES-256-GCM/Blake3）与 VLESS Reality（TLS 1.3/SNI 借用）进行吞吐、CPU 开销、握手时延与抗主动探测的量化对比。含 MTR 链路日志、MTU/MSS 分片阈值、内核参数调优与故障排查流程，给出可复现的工程选型结论。
+- [👉 阅读万字长文全文](/matrix/ss2022-vless-reality-performance-benchmarks)
+
+---
+
+
 ### 📄 [Claude 与 ChatGPT 严苛风控机理解析与零封号静态环境搭建规范（2026 工程实测版）](/matrix/claude-chatgpt-anti-ban-static-network-environment)
 - **发布日期**：2026-10-09 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
 - **核心摘要**：基于分布式探针实测与风控数据库比对，拆解 Claude 封号与 ChatGPT 1020 的底层判定链路，给出静态住宅 IP、指纹浏览器、WebRTC 与 DNS 防污染的零封号环境搭建规范，附多运营商链路对比数据与故障排查流程。
