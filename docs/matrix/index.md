@@ -64,6 +64,14 @@ description: 全球机场 (AirportMatrix) 深度技术矩阵专题库。聚焦BG
 
 <!-- MATRIX_ARTICLES_START -->
 
+### 📄 [Netflix OpenConnect CDN 架构与全球 4K HDR 跨区解锁技术全景（2026 工程实测版）](/matrix/netflix-openconnect-cdn-streaming-unlock-mechanisms)
+- **发布日期**：2026-10-25 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
+- **核心摘要**：基于上海电信 CN2/163、北京联通 AS9929/4837、广州移动 CMI 三地分布式探针，拆解 Netflix OpenConnect OCA 缓存机房的三层拓扑、DNS 劫持解锁的协议指纹与 4K HDR 码率阈值；给出 Scamalytics 风险分、MTR 路径判定与 MSS/MTU 分片实测数据，附 Disney+ 地理围栏对比与故障排查流程。
+- [👉 阅读万字长文全文](/matrix/netflix-openconnect-cdn-streaming-unlock-mechanisms)
+
+---
+
+
 ### 📄 [Hysteria 2 Brutal 拥塞控制与 UDP 丢包补偿工程深度解析（2026 实测版）](/matrix/hysteria2-brutal-congestion-control-deep-dive)
 - **发布日期**：2026-10-21 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
 - **核心摘要**：基于上海电信 CN2/163、北京联通 AS9929/4837、广州移动 CMI 三地分布式探针，对 Hysteria 2 的 Brutal 拥塞控制算法在晚高峰 QoS 整形与跨境 UDP 丢包环境下的穿透能力进行抓包级复盘。全文给出 QUIC 握手时延、MTU/MSS 分片阈值、Brutal 带宽利用率与 Scamalytics 风险联动数据，附 MTR 链路追踪、sysctl 调优与故障排查流程，面向骨干网运维与海外生产力团队提供可复现的工程结论。
