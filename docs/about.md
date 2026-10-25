@@ -57,6 +57,6 @@ description: AirportMatrix 实验室简介、团队专业背景、独立编辑�
 
 我们鼓励读者、同行专家与技术社区监督我们的评测报告。若您在阅读过程中发现任何数据偏差、品牌配置变更或链接失效，欢迎通过以下渠道与实验室联系：
 
-* **官方邮箱**：`admin@airportmatrix.blog`
+* **官方邮箱**：`admin@airportmatrix.cc`
 * **代码仓库**：[GitHub Issues](https://github.com)
 * **勘误承诺**：在收到有效技术证据（测速截图、路由追踪 MTR 日志）后，我们将在 48 小时内核实并发布勘误公告。

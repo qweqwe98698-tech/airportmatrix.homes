@@ -6,15 +6,54 @@ import path from 'path'
 export default defineConfig({
   title: 'AirportMatrix',
   titleTemplate: ':title | AirportMatrix',
-  description: '全球网络访问评测与科学上网知识库 (airportmatrix.blog)。2026年最新稳定机场推荐、IEPL专线机场天梯榜、便宜月付/按量计费机场、Clash/Shadowrocket配置教程及ChatGPT/海外网站打不开急救指南。',
+  description: '全球网络访问评测与科学上网知识库 (airportmatrix.cc)。2026年最新稳定机场推荐、IEPL专线机场天梯榜、便宜月付/按量计费机场、Clash/Shadowrocket配置教程及ChatGPT/海外网站打不开急救指南。',
   cleanUrls: true,
   lastUpdated: true,
   lang: 'zh-CN',
 
   sitemap: {
-    hostname: 'https://airportmatrix.blog',
+    hostname: 'https://airportmatrix.cc',
     transformItems(items) {
-      return items.filter(item => !item.url.includes('404'))
+      const nowIso = new Date().toISOString()
+      return items
+        .filter(item => !item.url.includes('404'))
+        .map(item => {
+          let priority = 0.7
+          let changefreq = 'weekly'
+
+          // 首页最高权重
+          if (item.url === 'https://airportmatrix.cc/' || item.url === 'https://airportmatrix.cc') {
+            priority = 1.0
+            changefreq = 'daily'
+          }
+          // 一级核心频道与排行榜
+          else if (/https:\/\/airportmatrix\.cc\/(ranking|cheap|client|matrix|free|ai|tech|website|faq)\/?$/.test(item.url)) {
+            priority = 0.9
+            changefreq = 'daily'
+          }
+          // 深度测评与技术矩阵长文
+          else if (item.url.includes('/matrix/') || item.url.includes('/ranking/')) {
+            priority = 0.8
+            changefreq = 'weekly'
+          }
+          // 客户端与技术教程
+          else if (item.url.includes('/client/') || item.url.includes('/tech/') || item.url.includes('/ai/')) {
+            priority = 0.8
+            changefreq = 'weekly'
+          }
+          // 合规与说明页
+          else if (/about|privacy|disclosure|methodology/.test(item.url)) {
+            priority = 0.5
+            changefreq = 'monthly'
+          }
+
+          return {
+            ...item,
+            priority,
+            changefreq,
+            lastmod: item.lastmod || nowIso
+          }
+        })
     }
   },
 
@@ -31,14 +70,14 @@ export default defineConfig({
       ]
     }
 
-    let canonicalUrl = 'https://airportmatrix.blog/'
+    let canonicalUrl = 'https://airportmatrix.cc/'
     if (cleanPath === 'index') {
-      canonicalUrl = 'https://airportmatrix.blog/'
+      canonicalUrl = 'https://airportmatrix.cc/'
     } else if (cleanPath.endsWith('/index')) {
       const dirPath = cleanPath.replace(/\/index$/, '')
-      canonicalUrl = `https://airportmatrix.blog/${dirPath}/`
+      canonicalUrl = `https://airportmatrix.cc/${dirPath}/`
     } else {
-      canonicalUrl = `https://airportmatrix.blog/${cleanPath}`
+      canonicalUrl = `https://airportmatrix.cc/${cleanPath}`
     }
     
     const pageTitle = pageData.title ? `${pageData.title} | AirportMatrix` : 'AirportMatrix · 2026全球稳定机场推荐与网络加速知识库'
@@ -115,12 +154,12 @@ export default defineConfig({
               'author': {
                 '@type': 'Organization',
                 'name': 'AirportMatrix 实验室',
-                'url': 'https://airportmatrix.blog/about'
+                'url': 'https://airportmatrix.cc/about'
               },
               'publisher': {
                 '@type': 'Organization',
                 'name': 'AirportMatrix · 全球机场自然知识屋',
-                'url': 'https://airportmatrix.blog'
+                'url': 'https://airportmatrix.cc'
               }
             })
           ])
@@ -131,8 +170,8 @@ export default defineConfig({
               '@context': 'https://schema.org',
               '@type': 'BreadcrumbList',
               'itemListElement': [
-                { '@type': 'ListItem', 'position': 1, 'name': '首页', 'item': 'https://airportmatrix.blog/' },
-                { '@type': 'ListItem', 'position': 2, 'name': cleanPath.startsWith('matrix/') ? 'SEO/GEO 深度矩阵' : '机场排行榜', 'item': cleanPath.startsWith('matrix/') ? 'https://airportmatrix.blog/matrix/' : 'https://airportmatrix.blog/ranking/' },
+                { '@type': 'ListItem', 'position': 1, 'name': '首页', 'item': 'https://airportmatrix.cc/' },
+                { '@type': 'ListItem', 'position': 2, 'name': cleanPath.startsWith('matrix/') ? 'SEO/GEO 深度矩阵' : '机场排行榜', 'item': cleanPath.startsWith('matrix/') ? 'https://airportmatrix.cc/matrix/' : 'https://airportmatrix.cc/ranking/' },
                 { '@type': 'ListItem', 'position': 3, 'name': pageData.title, 'item': canonicalUrl }
               ]
             })
@@ -175,8 +214,8 @@ export default defineConfig({
               'mainEntity': {
                 '@type': 'Organization',
                 'name': 'AirportMatrix Editorial Team',
-                'url': 'https://airportmatrix.blog',
-                'email': 'admin@airportmatrix.blog'
+                'url': 'https://airportmatrix.cc',
+                'email': 'admin@airportmatrix.cc'
               }
             })
           ])
@@ -201,11 +240,11 @@ export default defineConfig({
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       'name': '全球机场 · 森林自然知识屋',
-      'url': 'https://airportmatrix.blog',
+      'url': 'https://airportmatrix.cc',
       'description': '2026权威稳定机场推荐与流媒体/AI解锁测评矩阵',
       'potentialAction': {
         '@type': 'SearchAction',
-        'target': 'https://airportmatrix.blog/?q={search_term_string}',
+        'target': 'https://airportmatrix.cc/?q={search_term_string}',
         'query-input': 'required name=search_term_string'
       }
     })]
@@ -235,7 +274,7 @@ export default defineConfig({
         if (hrefIndex >= 0) {
           const href = tokens[idx].attrs[hrefIndex][1];
           if (/^https?:\/\//i.test(href)) {
-            if (!href.includes('airportmatrix.blog') && !href.includes('github.com')) {
+            if (!href.includes('airportmatrix.cc') && !href.includes('github.com')) {
               const isAff = /aff|register|code=|invite|\.cc|\.com\/#\/\?|\/register\?/i.test(href);
               const relIndex = tokens[idx].attrIndex('rel');
               const targetIndex = tokens[idx].attrIndex('target');
@@ -525,7 +564,7 @@ export default defineConfig({
 
     footer: {
       message: '🌱 森林精灵治愈风 · 纯净自然知识屋 | <a href="/about">关于我们</a> · <a href="/methodology">评测方法论</a> · <a href="/disclosure">推广与返利披露</a> · <a href="/privacy">隐私政策</a>',
-      copyright: 'Copyright © 2026 全球机场 (airportmatrix.blog) · 版权所有'
+      copyright: 'Copyright © 2026 全球机场 (airportmatrix.cc) · 版权所有'
     }
   }
 })

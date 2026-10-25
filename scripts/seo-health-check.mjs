@@ -8,7 +8,7 @@ const rootDir = path.resolve(__dirname, '..')
 const distDir = path.join(rootDir, 'docs', '.vitepress', 'dist')
 const publicDir = path.join(rootDir, 'docs', 'public')
 
-const DOMAIN = 'https://airportmatrix.blog'
+const DOMAIN = 'https://airportmatrix.cc'
 const INDEXNOW_KEY = '6852be576ce04ed19719c02d582b180a'
 
 console.log('\n======================================================')
