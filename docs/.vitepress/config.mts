@@ -531,6 +531,7 @@ export default defineConfig({
           text: '🌐 SEO / GEO 深度研究矩阵',
           items: [
             { text: '矩阵文献库总览', link: '/matrix/' },
+            { text: '跨国跨境电商与 TikTok 独立站矩阵防关联网...', link: '/matrix/cross-border-ecommerce-tiktok-network-isolation' },
             { text: 'Netflix OpenConnect CDN ...', link: '/matrix/netflix-openconnect-cdn-streaming-unlock-mechanisms' },
             { text: 'Hysteria 2 Brutal 拥塞控制与 ...', link: '/matrix/hysteria2-brutal-congestion-control-deep-dive' },
             { text: 'Shadowsocks 2022 与 VLESS...', link: '/matrix/ss2022-vless-reality-performance-benchmarks' },
