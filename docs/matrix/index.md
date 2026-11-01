@@ -64,6 +64,14 @@ description: 全球机场 (AirportMatrix) 深度技术矩阵专题库。聚焦BG
 
 <!-- MATRIX_ARTICLES_START -->
 
+### 📄 [TCP BBRv3 拥塞控制演进与跨境长肥管道吞吐极限优化：2026 年基于分布式探针的 LFN 实测解剖](/matrix/tcp-bbrv3-long-fat-networks-throughput-optimization)
+- **发布日期**：2026-11-01 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
+- **核心摘要**：以自建上海电信 CN2/163、北京联通 AS9929/4837、广州移动 CMI 探针的抓包与 MTR 日志为依据，解剖 TCP BBRv3 在跨境长肥管道 (LFN) 中的 BDP 收敛行为、丢包重传率与窗口扩缩边界。给出 204km/ms 光速物理极限下的吞吐上限模型、多运营商实测对比大表、sysctl 与 qdisc 关键配置、以及从 BBRv1 迁移到 v3 的故障排查流程，面向骨干网与跨国专线运维工程师。
+- [👉 阅读万字长文全文](/matrix/tcp-bbrv3-long-fat-networks-throughput-optimization)
+
+---
+
+
 ### 📄 [跨国跨境电商与 TikTok 独立站矩阵防关联网络环境工程设计：ASN 指纹、静态专线与隔离拓扑的 2026 工程实践](/matrix/cross-border-ecommerce-tiktok-network-isolation)
 - **发布日期**：2026-10-29 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
 - **核心摘要**：基于自建分布式探针（上海电信 CN2/163、北京联通 AS9929/AS4837、广州移动 CMI）实测，解剖 TikTok 运营与跨境独立站矩阵的网络环境隔离工程：从 ASN/AS-path 指纹、时延物理极限到静态专线拓扑与指纹防关联协同，给出可复现的测试方法论、配置模板与故障排查路径。
