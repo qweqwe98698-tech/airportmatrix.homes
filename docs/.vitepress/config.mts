@@ -531,6 +531,7 @@ export default defineConfig({
           text: '🌐 SEO / GEO 深度研究矩阵',
           items: [
             { text: '矩阵文献库总览', link: '/matrix/' },
+            { text: '全球海底光缆拓扑演进与亚太/中美跨洋中断应急路由...', link: '/matrix/submarine-cable-topology-asia-pacific-rerouting' },
             { text: 'TCP BBRv3 拥塞控制演进与跨境长肥管道吞...', link: '/matrix/tcp-bbrv3-long-fat-networks-throughput-optimization' },
             { text: '跨国跨境电商与 TikTok 独立站矩阵防关联网...', link: '/matrix/cross-border-ecommerce-tiktok-network-isolation' },
             { text: 'Netflix OpenConnect CDN ...', link: '/matrix/netflix-openconnect-cdn-streaming-unlock-mechanisms' },

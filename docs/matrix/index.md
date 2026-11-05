@@ -64,6 +64,14 @@ description: 全球机场 (AirportMatrix) 深度技术矩阵专题库。聚焦BG
 
 <!-- MATRIX_ARTICLES_START -->
 
+### 📄 [全球海底光缆拓扑演进与亚太/中美跨洋中断应急路由切换：2026 年 TPE/APG/NCP 断缆场景下的 BGP 收敛与陆缆冗余实测](/matrix/submarine-cable-topology-asia-pacific-rerouting)
+- **发布日期**：2026-11-05 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
+- **核心摘要**：基于上海 CN2/163、北京 AS9929/4837、广州 CMI 三地分布式探针，复盘 TPE、APG、NCP 亚太海缆中断后的 BGP 收敛路径与陆缆冗余表现，给出光在石英光纤 n=1.468 下的物理时延边界、MSS/MTU 分片阈值、Scamalytics 风险联动数据与可落地的应急路由切换配置，附多运营商实测对比大表与 FAQ。
+- [👉 阅读万字长文全文](/matrix/submarine-cable-topology-asia-pacific-rerouting)
+
+---
+
+
 ### 📄 [TCP BBRv3 拥塞控制演进与跨境长肥管道吞吐极限优化：2026 年基于分布式探针的 LFN 实测解剖](/matrix/tcp-bbrv3-long-fat-networks-throughput-optimization)
 - **发布日期**：2026-11-01 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
 - **核心摘要**：以自建上海电信 CN2/163、北京联通 AS9929/4837、广州移动 CMI 探针的抓包与 MTR 日志为依据，解剖 TCP BBRv3 在跨境长肥管道 (LFN) 中的 BDP 收敛行为、丢包重传率与窗口扩缩边界。给出 204km/ms 光速物理极限下的吞吐上限模型、多运营商实测对比大表、sysctl 与 qdisc 关键配置、以及从 BBRv1 迁移到 v3 的故障排查流程，面向骨干网与跨国专线运维工程师。
