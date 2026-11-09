@@ -64,6 +64,14 @@ description: 全球机场 (AirportMatrix) 深度技术矩阵专题库。聚焦BG
 
 <!-- MATRIX_ARTICLES_START -->
 
+### 📄 [DNS 劫持、EDNS Client Subnet 泄露与全链路加密 DoH/DoT 实战：2026 跨境网络解析链路硬化工程手册](/matrix/dns-poisoning-ecs-leak-doh-dot-hardening)
+- **发布日期**：2026-11-09 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
+- **核心摘要**：基于上海电信 CN2/163、北京联通 AS9929/4837、广州移动 CMI 三地分布式探针的抓包与 MTR 实测，解剖 UDP/53 明文解析在跨境场景下的劫持路径、EDNS Client Subnet 造成的真实出口与地理位置泄露，并给出 DoH/DoT/DNSSEC 全链路加密的落地配置、分流规则与故障排查流程，附多运营商对比数据表与工程 FAQ。
+- [👉 阅读万字长文全文](/matrix/dns-poisoning-ecs-leak-doh-dot-hardening)
+
+---
+
+
 ### 📄 [全球海底光缆拓扑演进与亚太/中美跨洋中断应急路由切换：2026 年 TPE/APG/NCP 断缆场景下的 BGP 收敛与陆缆冗余实测](/matrix/submarine-cable-topology-asia-pacific-rerouting)
 - **发布日期**：2026-11-05 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
 - **核心摘要**：基于上海 CN2/163、北京 AS9929/4837、广州 CMI 三地分布式探针，复盘 TPE、APG、NCP 亚太海缆中断后的 BGP 收敛路径与陆缆冗余表现，给出光在石英光纤 n=1.468 下的物理时延边界、MSS/MTU 分片阈值、Scamalytics 风险联动数据与可落地的应急路由切换配置，附多运营商实测对比大表与 FAQ。
