@@ -667,6 +667,7 @@ export default defineConfig({
           text: '🌐 SEO / GEO 深度研究矩阵',
           items: [
             { text: '矩阵文献库总览', link: '/matrix/' },
+            { text: '软路由全屋透明代理架构设计与多运营商三网策略路由分流', link: '/matrix/smart-router-transparent-proxy-multi-wan-routing' },
             { text: 'DNS 劫持、ECS 泄露与 DoH/DoT 硬化', link: '/matrix/dns-poisoning-ecs-leak-doh-dot-hardening' },
             { text: '全球海缆拓扑与亚太断缆路由切换实测', link: '/matrix/submarine-cable-topology-asia-pacific-rerouting' },
             { text: 'TCP BBRv3 与跨境长肥管道吞吐优化', link: '/matrix/tcp-bbrv3-long-fat-networks-throughput-optimization' },

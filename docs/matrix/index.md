@@ -64,6 +64,14 @@ description: 全球机场 (AirportMatrix) 深度技术矩阵专题库。聚焦BG
 
 <!-- MATRIX_ARTICLES_START -->
 
+### 📄 [软路由全屋透明代理架构设计与多运营商三网策略路由分流：2026 拥塞控制与物理性能基准实测](/matrix/smart-router-transparent-proxy-multi-wan-routing)
+- **发布日期**：2026-11-13 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
+- **核心摘要**：基于上海电信 CN2/163、北京联通 AS9929/AS4837、广州移动 CMI 三地分布式探针实测，拆解 OpenWrt 软路由 TUN 模式透明代理与多 WAN 策略路由的工程实现。给出光纤 n=1.468 下的物理时延下限、MTU/MSS 分片阈值、拥塞控制算法对比与三网分流规则，附 MTR 抓包日志与故障排查流程。
+- [👉 阅读万字长文全文](/matrix/smart-router-transparent-proxy-multi-wan-routing)
+
+---
+
+
 ### 📄 [DNS 劫持、EDNS Client Subnet 泄露与全链路加密 DoH/DoT 实战：2026 跨境网络解析链路硬化工程手册](/matrix/dns-poisoning-ecs-leak-doh-dot-hardening)
 - **发布日期**：2026-11-09 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
 - **核心摘要**：基于上海电信 CN2/163、北京联通 AS9929/4837、广州移动 CMI 三地分布式探针的抓包与 MTR 实测，解剖 UDP/53 明文解析在跨境场景下的劫持路径、EDNS Client Subnet 造成的真实出口与地理位置泄露，并给出 DoH/DoT/DNSSEC 全链路加密的落地配置、分流规则与故障排查流程，附多运营商对比数据表与工程 FAQ。
