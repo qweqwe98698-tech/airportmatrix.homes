@@ -308,30 +308,36 @@ Step 6: 切换与验证
 
 ## 七、常见问题与技术答疑 (FAQ)
 
-### Q1: BGP Anycast 的同一 IP 从多个 PoP 宣告，会不会导致路由环路？
+::: details Q1: BGP Anycast 的同一 IP 从多个 PoP 宣告，会不会导致路由环路？
 
 不会。BGP 的 AS Path 防环机制会拒绝包含自身 AS 号的路由。Anycast 的多个 PoP 通常属于同一 AS（如 AS13335），通过 iBGP 或 Route Reflector 同步，eBGP 层面只向外部宣告一次。真正的风险是配置错误导致的 iBGP 环路，需用 `bgp cluster-id` 与 `neighbor route-reflector-client` 正确配置。
 
-### Q2: 为什么 Anycast 节点 ping 值正常，但 TCP 握手经常失败？
+:::
+::: details Q2: 为什么 Anycast 节点 ping 值正常，但 TCP 握手经常失败？
 
 典型原因是 BGP 收敛期间路径切换。SYN 与 SYN-ACK 走了不同 PoP，目标 PoP 无连接状态，返回 RST。排查方法：用 `tcpdump` 同时抓两端，对比 SYN 与 SYN-ACK 的到达接口与时间戳。缓解方法：启用 `tcp_syncookies`，降低 `tcp_syn_retries`，并在客户端侧配置多节点故障转移。
 
-### Q3: AS Path 长度相同的情况下，BGP 如何选路？
+:::
+::: details Q3: AS Path 长度相同的情况下，BGP 如何选路？
 
 BGP 的选路顺序为：Weight（Cisco 私有）→ Local Preference → 本地始发 → AS Path 长度 → Origin → MED → eBGP 优于 iBGP → IGP Metric 到 Next Hop → 最老路由 → Router ID 最小 → Cluster List 最短 → 邻居 IP 最小。AS Path 相同后，MED 与 IGP Metric 起决定作用，这也是为什么同一前缀在不同运营商看到的下一跳可能不同。
 
-### Q4: 如何判断一个 Anycast 服务商的路由质量？
+:::
+::: details Q4: 如何判断一个 Anycast 服务商的路由质量？
 
 三个维度：一是 BGP 宣告的 PoP 数量与地理位置覆盖；二是实测的 AS Path 多样性与收敛时延；三是晚高峰的抖动与丢包率。建议用 RIPE RIS 查询该前缀的宣告历史，用 MTR 做长期监测，用 Scamalytics 核查 IP 风险评分。单一指标都会误导。
 
-### Q5: MTU 不一致导致的 PMTUD 黑洞如何快速定位？
+:::
+::: details Q5: MTU 不一致导致的 PMTUD 黑洞如何快速定位？
 
 用 `ping -M do -s <size>` 逐步降低 size，找到能通的最大值。若 1472 不通但 1400 通，说明路径 MTU 在 1428~1500 之间。进一步用 `traceroute --mtu` 定位具体跳。根治方法是在隧道入口做 MSS 钳制（`iptables -t mangle -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu`），或启用 `tcp_mtu_probing=1`。
 
-### Q6: 2026 年 Anycast 在跨境场景还有优势吗？
+:::
+::: details Q6: 2026 年 Anycast 在跨境场景还有优势吗？
 
 有，但优势收窄。Anycast 的就近接入与 DDoS 分散仍不可替代，但在跨境高抖动场景下，纯 Anycast 的体验不如"Anycast 接入 + 专线回源"的混合架构。企业级用户应优先考虑混合方案，个人用户应关注服务商是否有专线入口。专线拓扑的详细对比参见 [IEPL与IPLC专线解析](/tech/iepl-vs-iplc)。
 
+:::
 ---
 
 *本文数据来自 AirportMatrix 实验室分布式探针的实测采集，采集周期 2025-10 至 2026-01。测试方法与质检标准详见 [评测方法论与质检标准](/methodology)。*

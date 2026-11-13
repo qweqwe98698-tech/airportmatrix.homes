@@ -234,22 +234,27 @@ ip route replace default via 192.168.2.1 dev eth1 metric 200
 
 ## 七、常见问题与技术答疑 (FAQ)
 
-### Q1：为什么我的住宅 IP 在 Scamalytics 上评分很低，但 OpenAI 仍然拒绝？
+::: details Q1：为什么我的住宅 IP 在 Scamalytics 上评分很低，但 OpenAI 仍然拒绝？
 
 Scamalytics 的评分模型主要基于滥用举报与代理特征库，更新频率约 24-48 小时。OpenAI 的风控则使用自有模型，综合 ASN 类型、rDNS、历史行为、TLS 指纹与账号关联。一个 IP 可能在 Scamalytics 上干净，但因 ASN 属于小型托管商（即使 rDNS 伪装成住宅），被 OpenAI 单独标记。建议交叉验证 IPQS 与 `bgp.tools` 的 ASN 类型。
 
-### Q2：双 ISP 住宅 IP 相比单 ISP，在风控上有多大优势？
+:::
+::: details Q2：双 ISP 住宅 IP 相比单 ISP，在风控上有多大优势？
 
 在我们的 31 个样本中，双 ISP 样本的 Turnstile 通过率中位数为 97%，单 ISP 为 89%。优势主要体现在故障切换与 ASN 多样性：当一条线路被临时标记时，另一条可接管。但若两条线路同属一个母公司（如 Comcast 与 Xfinity），ASN 相同，优势有限。真正的双 ISP 应是不同自治系统。
 
-### Q3：MTU 设置错误真的会导致 OpenAI 风控吗？
+:::
+::: details Q3：MTU 设置错误真的会导致 OpenAI 风控吗？
 
 会。MTU 错误导致 TLS ClientHello 分片，部分风控系统（尤其是 Cloudflare 的 Bot Management）会将分片握手识别为异常客户端。我们实测中，MSS 未 clamp 的链路 Turnstile 通过率比正确配置低 15-20 个百分点。建议在落地网关统一配置 `--clamp-mss-to-pmtu`。
 
-### Q4：Cloudflare Turnstile 通过率低，如何针对性优化？
+:::
+::: details Q4：Cloudflare Turnstile 通过率低，如何针对性优化？
 
 Turnstile 的挑战依赖浏览器环境与网络指纹。优化方向：使用真实浏览器（非无头）、确保 TLS JA3 为 Chrome/Firefox 默认、避免 DNS 泄漏、保持出口 IP 稳定。若使用 `curl-impersonate`，需匹配目标浏览器的完整指纹。网络层上，降低抖动与丢包可显著提升通过率。
 
-### Q5：2026 年住宅 IP 代理的成本趋势如何？
+:::
+::: details Q5：2026 年住宅 IP 代理的成本趋势如何？
 
 真实住宅双 ISP IP 的资源稀缺性在上升，成本同比 2025 年上涨约 30-40%。同时，风控系统对"伪住宅"的识别能力增强，低价产品的有效性在下降。建议将预算集中在少量高质量 IP 上，而非大量低价 IP。具体选型可参考 [晚高峰稳定专线机场榜](/ranking/stable) 的季度更新。
+:::

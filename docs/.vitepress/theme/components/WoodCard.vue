@@ -29,7 +29,7 @@
         <div v-if="rating" class="flex items-center gap-1.5 bg-[#F4ECE1] px-3.5 py-1.5 rounded-xl border border-[#DEC8AF]">
           <span class="text-amber-500 font-bold text-base">★</span>
           <span class="text-base font-extrabold text-[#5C3B1E]">{{ rating }}</span>
-          <span class="text-xs text-[#8C6239]/70">/ 5.0</span>
+          <span class="text-xs text-[#8C6239]/70">/ 10</span>
         </div>
       </div>
     </div>

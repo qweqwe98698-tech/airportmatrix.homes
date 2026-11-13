@@ -19,6 +19,8 @@ import TopPodium from './components/TopPodium.vue'
 import TrustEEAT from './components/TrustEEAT.vue'
 import ReadingProgress from './components/ReadingProgress.vue'
 import ToastNotification from './components/ToastNotification.vue'
+import DocBreadcrumb from './components/DocBreadcrumb.vue'
+import DocRelatedCluster from './components/DocRelatedCluster.vue'
 
 export default {
   extends: DefaultTheme,
@@ -29,6 +31,12 @@ export default {
         h('div', { class: 'forest-sunbeam' }),
         h(LeavesOverlay),
         h(FireflyOverlay)
+      ],
+      'doc-before': () => [
+        h(DocBreadcrumb)
+      ],
+      'doc-after': () => [
+        h(DocRelatedCluster)
       ],
       'layout-bottom': () => [
         h(FairyAssistant),
@@ -51,6 +59,8 @@ export default {
     app.component('FairyAssistant', FairyAssistant)
     app.component('LeavesOverlay', LeavesOverlay)
     app.component('FireflyOverlay', FireflyOverlay)
+    app.component('DocBreadcrumb', DocBreadcrumb)
+    app.component('DocRelatedCluster', DocRelatedCluster)
   }
 }
 

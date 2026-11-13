@@ -37,18 +37,26 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const query = ref('')
 
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    const q = new URLSearchParams(window.location.search).get('q')
+    if (q) query.value = q
+  }
+})
+
 const hotTags = [
-  { name: '🏆 2026稳定机场榜', link: '/ranking/' },
-  { name: '🤖 ChatGPT打不开', link: '/ai/chatgpt-access' },
-  { name: '📱 Clash Verge教程', link: '/client/clash-verge' },
-  { name: '⚡ 光速云5年评测', link: '/ranking/guangsu' },
-  { name: '💰 10元内平价专线', link: '/cheap/10-yuan' },
-  { name: '🚨 节点全红急救', link: '/faq/timeout-troubleshoot' },
-  { name: '🌐 原生住宅IP解析', link: '/tech/native-residential-ip' }
+  { name: '🏆 2026机场推荐榜', link: '/ranking/' },
+  { name: '💰 性价比机场推荐', link: '/ranking/budget' },
+  { name: '🐱 飞猫云约7元实测', link: '/ranking/feimao' },
+  { name: '⚡ 光速云5年老牌评测', link: '/ranking/guangsu' },
+  { name: '🏝️ 星岛梦不限时按量', link: '/ranking/xingdao' },
+  { name: '🚀 顶级IEPL专线榜', link: '/ranking/iepl-iplc' },
+  { name: '🤖 ChatGPT访问指南', link: '/ai/chatgpt-access' },
+  { name: '📱 Clash Verge教程', link: '/client/clash-verge' }
 ]
 
 function triggerSearch() {

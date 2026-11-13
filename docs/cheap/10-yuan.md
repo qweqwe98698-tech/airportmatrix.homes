@@ -52,7 +52,7 @@ description: 2026年10元档机场推荐与平价低价机场榜单。实测飞�
   promoCode="flat888"
   promoDesc="季付及以上 9 折"
   speedtestImage="/speedtest/微风-节点测速实测.png"
-  link="https://edp01.breezenetaff.com/#/?code=R9ZazSfE"
+  link="https://edp01.breezenetaff.com/#/?code=t3huofyI"
   linkText="前往微风网络官网"
 >
   <div class="space-y-2">
@@ -90,24 +90,24 @@ description: 2026年10元档机场推荐与平价低价机场榜单。实测飞�
 
 <WoodCard 
   title="星岛梦" 
-  subtitle="2024 年运营 · 约 ¥8.0 / 月 · 60GB · 专线负载均衡 · 流媒体解锁优化"
-  tag="新锐低价黑马"
+  subtitle="2020 年老牌运营 · 约 ¥8.0 / 月 · 60GB · 企业级内网专线 · 另有不限时按量"
+  tag="5年老牌按量兼备"
   priceType="年付折算"
-  rating="9.5"
+  rating="9.7"
   price="约 ¥8.0 / 月 (60GB)"
   promoCode="nmw888"
-  promoDesc="新人注册 9 折"
+  promoDesc="新人注册优惠"
   speedtestImage="/speedtest/星岛梦-节点测速实测.png"
   link="https://guangs.xingdaomeng.com/#/?code=1TynBYnR"
   linkText="前往星岛梦官网"
 >
   <div class="space-y-2">
-    <p><strong>实测简评</strong>：折算后约 8 元/月即可获得 60GB 专线流量，全节点覆盖主流流媒体与 AI 解锁，性价比表现突出。</p>
+    <p><strong>实测简评</strong>：2020 年起持续运营的老牌商家，年付折算约 8 元/月含 60GB 内网专线流量，同时提供流量永不过期的不限时按量套餐（详见 <a href="/ranking/xingdao">星岛梦深度评测</a>）。</p>
   </div>
   <template #tags>
     <LeafBadge variant="wood">约8元/月</LeafBadge>
-    <LeafBadge variant="primary">60GB</LeafBadge>
-    <LeafBadge variant="amber">AI解锁优化</LeafBadge>
+    <LeafBadge variant="primary">2020年老牌</LeafBadge>
+    <LeafBadge variant="amber">不限时按量可选</LeafBadge>
   </template>
 </WoodCard>
 
@@ -150,8 +150,14 @@ description: 2026年10元档机场推荐与平价低价机场榜单。实测飞�
 
 ## ❓ 常见问题解答 (FAQ)
 
-### 为什么 10 元左右的套餐多为 50GB 流量？够用吗？
-50GB 流量对于日常文字浏览、查阅论文、收发 Gmail、使用 ChatGPT 而言完全绰绰有余（平均每天可使用约 1.6GB）。但如果您习惯全天候观看 YouTube 4K 或 Netflix HDR 极清视频，50GB 大约仅能支持 10~15 小时的 4K 流媒体播放，建议升级至 100GB 以上的月付套餐。
+::: details 1. 为什么 10 元左右的套餐多为 50GB 流量？够用吗？
+50GB 流量对于日常文字浏览、查阅论文、收发 Gmail、使用 ChatGPT 而言完全绰绰有余（平均每天可使用约 1.6GB）。但如果您习惯全天候观看 YouTube 4K 或 Netflix HDR 极清视频，50GB 大约仅能支持 10~15 小时的 4K 流媒体播放，建议升级至 [2026 性价比机场推荐榜](/ranking/budget) 中的 100GB~150GB 真实月付套餐。
+:::
 
-### 年付套餐买完后，如果中途节点被封怎么办？
-合规且运营稳定的专线机场使用的是内网隧道（IEPL/IPLC），其境内与境外传输不走公网国际出口，不受常规公网封锁影响。即便遇到机房割接，正规厂商也会在数小时内调度备用入口，通常无需担心节点整体永久失效。
+::: details 2. 年付套餐买完后，如果中途节点波动怎么办？
+合规且运营稳定的专线机场（如 [光速云](/ranking/guangsu)、[飞猫云](/ranking/feimao)）使用的是内网隧道（IEPL/IPLC），境内与境外传输不走公网国际出口。即便遇到机房割接，正规厂商也会调度备用入口；预算允许时也可配合 [星岛梦](/ranking/xingdao) 按量套餐作为双订阅灾备。
+:::
+
+::: details 3. 10元档平价机场怎么选？飞猫云、微风网络、光速云有什么区别？
+三者均部署了 IEPL 专线且年付折算都在 7~7.5 元/月左右：追求 5 年老牌全能与 70 节点全解锁首选 [光速云](/ranking/guangsu)；追求轻量入门与 8 折季付体验可看 [飞猫云](/ranking/feimao)；偏好极简自研客户端与低丢包可看 [微风网络](/ranking/weifeng)。
+:::

@@ -1,9 +1,9 @@
 ---
-title: Clash / Clash Verge 免费节点每日更新与订阅提取：白嫖安全防黑指南 2026
-description: 2026年最新Clash免费节点订阅源整理、Clash Verge Rev免费配置导入、Mihomo免费yaml提取教程。深入解析公共免费节点中间人攻击(MITM)、隐私泄露与钓鱼劫持风险，教你安全白嫖与低成本转正。
+title: Clash / Clash Verge 公开免费订阅提取风险与安全替代指南 2026
+description: 深入解析网上 Clash 公开免费订阅源与 Mihomo yaml 提取的中间人攻击(MITM)、隐私泄露及 IP 风控封号风险，并提供更安全可控的低成本正规替代方案与教程。
 ---
 
-# 🚀 Clash / Clash Verge 免费节点每日更新与订阅提取：白嫖安全防黑指南 2026
+# 🛡️ Clash / Clash Verge 公开订阅风险解析与安全替代指南 2026
 
 <div class="flex items-center gap-2 mb-6">
   <LeafBadge variant="primary">Clash 免费节点</LeafBadge>

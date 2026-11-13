@@ -1,9 +1,9 @@
 ---
-title: 每日免费节点分享与使用技巧 · Clash / v2rayN / 小火箭免费订阅 2026
-description: 2026年每日更新免费节点获取全指南。涵盖Clash免费节点、Shadowrocket免费订阅、v2rayN免费节点导入与安全防护技巧。
+title: 公共免费节点使用安全须知与低门槛专线替代方案 2026
+description: 面向临时应急用户的公共节点导入与安全隔离守则，说明 Clash / 小火箭 / v2rayN 使用公开订阅的隐私注意事项，并提供 7~15 元高性价比正规机场替代建议。
 ---
 
-# 🎁 每日免费节点分享与使用技巧 2026
+# 🛡️ 公共免费节点使用安全须知与低门槛替代指南 2026
 
 <div class="flex items-center gap-2 mb-6">
   <LeafBadge variant="primary">每日更新</LeafBadge>

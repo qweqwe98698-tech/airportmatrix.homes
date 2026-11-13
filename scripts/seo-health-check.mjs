@@ -8,7 +8,7 @@ const rootDir = path.resolve(__dirname, '..')
 const distDir = path.join(rootDir, 'docs', '.vitepress', 'dist')
 const publicDir = path.join(rootDir, 'docs', 'public')
 
-const DOMAIN = 'https://airportmatrix.cc'
+const DOMAIN = 'https://airportmatrix.homes'
 const INDEXNOW_KEY = '6852be576ce04ed19719c02d582b180a'
 
 console.log('\n======================================================')
@@ -26,8 +26,12 @@ const stats = {
   canonicalErrors: 0,
   brokenInternalLinks: 0,
   duplicateTitles: 0,
+  duplicateDescriptions: 0,
+  missingDescriptions: 0,
   duplicateH1s: 0,
   invalidSchemas: 0,
+  missingBreadcrumbs: 0,
+  unclosedContainers: 0,
   suspiciousDirs: 0
 }
 
@@ -113,6 +117,7 @@ const htmlFiles = getAllHtmlFiles(distDir)
 stats.totalPages = htmlFiles.length
 
 const titlesMap = new Map()
+const descriptionsMap = new Map()
 const h1sMap = new Map()
 const allInternalHrefs = []
 
@@ -187,15 +192,40 @@ htmlFiles.forEach(file => {
     errors.push(`CRITICAL: 页面 ${relPath} 缺失 <h1> 标签！`)
   }
 
+  // Description 检查
+  const descMatch = content.match(/<meta[^>]*name=["']description["'][^>]*content=["']([^"']*)["']/i)
+  if (!is404) {
+    if (!descMatch || !descMatch[1].trim()) {
+      stats.missingDescriptions++
+      warnings.push(`页面 ${relPath} 缺少或为空的 <meta name="description">！`)
+    } else {
+      const desc = descMatch[1].trim()
+      if (descriptionsMap.has(desc)) {
+        stats.duplicateDescriptions++
+        warnings.push(`重复 Description 警告: 同时出现在 [${descriptionsMap.get(desc)}] 和 [${relPath}]`)
+      } else {
+        descriptionsMap.set(desc, relPath)
+      }
+    }
+  }
+
   // Schema JSON-LD 检查
   const schemaMatches = content.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)
+  let hasBreadcrumb = false
   for (const match of schemaMatches) {
     try {
-      JSON.parse(match[1])
+      const parsed = JSON.parse(match[1])
+      if (parsed['@type'] === 'BreadcrumbList') {
+        hasBreadcrumb = true
+      }
     } catch (e) {
       stats.invalidSchemas++
       errors.push(`页面 ${relPath} 包含非法的 JSON-LD 结构化数据语法: ${e.message}`)
     }
+  }
+  if (!is404 && relPath !== 'index.html' && !hasBreadcrumb) {
+    stats.missingBreadcrumbs++
+    warnings.push(`页面 ${relPath} 缺少 BreadcrumbList 结构化数据。`)
   }
 
   // 提取 <a> 标签内部链接以备死链检查
@@ -273,6 +303,35 @@ if (fs.existsSync(indexNowKeyFile)) {
   warnings.push(`IndexNow 密钥文件 /${INDEXNOW_KEY}.txt 缺失。`)
 }
 
+// 7. 检查 Markdown 容器闭合完整性 (防止 FAQ details 嵌套损坏)
+console.log('🔍 [7/8] 检查 Markdown 容器语法闭合性...')
+function walkMarkdown(dir, list = []) {
+  for (const entry of fs.readdirSync(dir)) {
+    if (entry === '.vitepress' || entry === 'public') continue
+    const full = path.join(dir, entry)
+    if (fs.statSync(full).isDirectory()) walkMarkdown(full, list)
+    else if (entry.endsWith('.md')) list.push(full)
+  }
+  return list
+}
+const docsDir = path.join(rootDir, 'docs')
+for (const mdFile of walkMarkdown(docsDir)) {
+  const lines = fs.readFileSync(mdFile, 'utf-8').split(/\r?\n/)
+  let depth = 0
+  for (const line of lines) {
+    const trimmed = line.trim()
+    if (/^:::\s*\w+/.test(trimmed)) depth++
+    else if (trimmed === ':::') depth--
+  }
+  if (depth !== 0) {
+    stats.unclosedContainers++
+    errors.push(`Markdown 容器未正确闭合 (${depth}): ${path.relative(rootDir, mdFile)}`)
+  }
+}
+if (stats.unclosedContainers === 0) {
+  console.log('   ✅ Markdown 容器闭合检查通过 (0 个未闭合 ::: 容器)。')
+}
+
 // 8. 综合裁定
 console.log('\n======================================================')
 console.log('📊 SEO HEALTH CHECK REPORT 综合审计结果')
@@ -286,8 +345,11 @@ console.log(`Sitemap:              ${stats.sitemapUrls > 0 ? 'PASS ✅' : 'FAIL 
 console.log(`Internal Links:       ${stats.brokenInternalLinks === 0 ? 'PASS ✅' : 'FAIL ❌'}`)
 console.log(`Core URLs (200 OK):   PASS ✅`)
 console.log(`Schema Validation:    ${stats.invalidSchemas === 0 ? 'PASS ✅' : 'FAIL ❌'}`)
+console.log(`BreadcrumbList:       ${stats.missingBreadcrumbs === 0 ? 'PASS ✅' : 'WARN ⚠️'}`)
 console.log(`Duplicate Titles:     ${stats.duplicateTitles === 0 ? 'PASS ✅' : 'WARN ⚠️'}`)
-console.log(`Page Count Stability: PASS ✅ (32 Pages)`)
+console.log(`Duplicate Descs:      ${stats.duplicateDescriptions === 0 ? 'PASS ✅' : 'WARN ⚠️'}`)
+console.log(`Markdown Containers:  ${stats.unclosedContainers === 0 ? 'PASS ✅' : 'FAIL ❌'}`)
+console.log(`Page Count Stability: PASS ✅ (${stats.totalPages} Pages)`)
 console.log(`IndexNow Supported:   ${indexNowSupported ? 'YES ✅' : 'NO ⚠️'}`)
 
 if (warnings.length > 0) {

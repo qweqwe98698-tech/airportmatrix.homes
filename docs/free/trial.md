@@ -1,6 +1,6 @@
 ---
-title: 2026 支持免费试用与一元体验的机场推荐：免翻墙注册与白嫖避坑指南
-description: 2026年最新支持免费试用、一元体验、注册送流量的机场合集。教你免翻墙注册、测试晚高峰真实带宽与防止自动续费扣款，零成本验证节点速度与流媒体解锁。
+title: 2026 支持试用与一元体验的正规机场推荐：低门槛实测与避坑指南
+description: 2026年支持注册试用、一元体验及低门槛实测的正规专线机场指南。教你测试晚高峰真实带宽、AI与流媒体解锁表现，避免公共节点隐私泄露与自动续费陷阱。
 ---
 
 # 🎁 2026 支持免费试用与一元体验的机场推荐：免翻墙注册与避坑指南
@@ -66,21 +66,21 @@ description: 2026年最新支持免费试用、一元体验、注册送流量的
 
 <WoodCard 
   title="飞猫云" 
-  subtitle="2023 年运营 · 约 7 元/月 · 公网中转与专线 · 平价低门槛"
+  subtitle="2023 年运营 · 约 7 元/月 · 50GB IEPL 专线 · 平价低门槛入门"
   tag="🥈 低价年付主推"
   priceType="年付折算"
-  rating="9.6"
-  price="约 ¥7.0 / 月"
+  rating="9.8"
+  price="约 ¥7.0 / 月 (50GB)"
   promoCode="flycat888"
-  promoDesc="新用户专享 88 折"
+  promoDesc="季付及以上享 8 折"
   speedtestImage="/speedtest/飞猫云-节点测速实测.png"
-  link="https://feimaoyun.com"
+  link="https://guangs.flycataff.com/#/?code=6uq0Xe9y"
   linkText="直达飞猫云官网"
 >
-  <p><strong>🎯 试用与体验评价</strong>：低门槛入门首选，适合查阅文献与日常轻度浏览，提供极低成本的尝鲜体验。</p>
+  <p><strong>🎯 试用与体验评价</strong>：约 7 元级低门槛 IEPL 专线入门首选，提供自研客户端免配置上手，适合查阅文献与日常轻度出海；详见 <a href="/ranking/feimao">飞猫云实测评测</a>。</p>
   <template #tags>
     <LeafBadge variant="primary">平价首选</LeafBadge>
-    <LeafBadge variant="wood">低门槛尝鲜</LeafBadge>
+    <LeafBadge variant="wood">IEPL专线</LeafBadge>
   </template>
 </WoodCard>
 

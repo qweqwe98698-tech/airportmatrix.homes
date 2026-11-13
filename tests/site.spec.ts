@@ -111,4 +111,21 @@ test.describe('全球机场 · 森林自然知识屋 E2E 质量与全矩阵测�
     await page.goto('/faq/wifi-vs-cellular');
     await expect(page.locator('h1')).toContainText('Wi-Fi 能用但流量不能用 / 关闭代理后断网终极急救');
   });
+
+  test('核心商业专题与品牌页（性价比/飞猫云/光速云/星岛梦/顶级专线/按量）渲染与面包屑正常', async ({ page }) => {
+    const routes = [
+      { path: '/ranking/budget', h1: '2026 性价比机场推荐榜单' },
+      { path: '/ranking/feimao', h1: '飞猫云机场官网与 2026 实测评测' },
+      { path: '/ranking/guangsu', h1: '光速云机场官网与 2026 深度评测报告' },
+      { path: '/ranking/xingdao', h1: '星岛梦机场官网与 2026 老牌按量计费深度评测' },
+      { path: '/ranking/iepl-iplc', h1: '2026 顶级机场推荐与 IEPL / IPLC 跨境物理专线横评' },
+      { path: '/cheap/pay-as-you-go', h1: '按量计费机场推荐' },
+    ];
+    for (const r of routes) {
+      await page.goto(r.path);
+      await expect(page.locator('h1')).toContainText(r.h1);
+      await expect(page.locator('nav.doc-breadcrumb')).toBeVisible();
+      await expect(page.locator('aside.doc-related-cluster')).toBeVisible();
+    }
+  });
 });

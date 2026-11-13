@@ -10,7 +10,7 @@
           2026 机场综合实力天梯榜 (TOP 4 旗舰)
         </h3>
         <p class="text-sm text-[#5C785F] mt-1.5 mb-0">
-          基于全网 17 家服务商 24h 自动化测速、丢包率、客服响应与防跑路综合评级甄选。
+          从 42 家收录机场数据库甄选前四旗舰：兼顾 2020 老牌信誉、IEPL 物理专线稳定性、测速实测快照与透明价格区间。
         </p>
       </div>
 
@@ -18,7 +18,7 @@
         href="/ranking/"
         class="inline-flex items-center gap-1 font-bold text-[#246B45] hover:text-[#2563EB] text-sm !no-underline group"
       >
-        <span>查看完整 17 家天梯矩阵</span>
+        <span>查看完整 42 家天梯矩阵</span>
         <span class="group-hover:translate-x-1 transition-transform">→</span>
       </a>
     </div>
@@ -160,7 +160,7 @@ const topAirports = [
       '提供 Windows/Mac/Android 自研 App'
     ],
     reviewUrl: '/ranking/weifeng',
-    affUrl: 'https://edp01.breezenetaff.com/#/?code=R9ZazSfE'
+    affUrl: 'https://edp01.breezenetaff.com/#/?code=t3huofyI'
   },
   {
     id: 'xingdao',

@@ -228,23 +228,29 @@ Brutal 的工程价值在于“把不可控的丢包转化为可控的速率承�
 
 ### 常见问题与技术答疑 (FAQ)
 
-**Q1：Brutal 的带宽标定值应该按什么口径测？**
+::: details Q1：Brutal 的带宽标定值应该按什么口径测？
 用 `iperf3 -u -b 0 -t 30` 在目标链路上测 UDP 单向吞吐，取稳定段的中位数，再乘 0.8。不要用 Speedtest 的 TCP 结果，TCP 有重传补偿，会高估 UDP 真实容量 15%~30%。
+:::
 
-**Q2：为什么 Hysteria 2 握手成功但大文件传输卡死？**
+::: details Q2：为什么 Hysteria 2 握手成功但大文件传输卡死？
 90% 是 MTU/PMTUD 黑洞。QUIC 握手包小于 1200 字节能过，数据包超过路径 MTU 被静默丢弃。用 `ping -M do -s 1400` 逐级探测，把 `quicSettings.mtu` 设为探测值减 28。
+:::
 
-**Q3：Brutal 会不会把同链路的其他用户挤死？**
+::: details Q3：Brutal 会不会把同链路的其他用户挤死？
 会。Brutal 是固定速率发送，不响应拥塞信号（除非丢包超阈值）。在共享出口上，它本质是“抢占式”的。生产环境务必在服务端做 per-user 带宽配额，或改用 BBR 作为默认、Brutal 仅对特定流启用。
+:::
 
-**Q4：晚高峰 UDP 丢包 20% 以上，还值得用 Hysteria 2 吗？**
+::: details Q4：晚高峰 UDP 丢包 20% 以上，还值得用 Hysteria 2 吗？
 不值得。丢包 >20% 时 Brutal 进入乘法降速，吞吐优势收窄到 10% 以内，而重传放大对链路的伤害更大。此时应优先换出口 AS（如从 AS4837 换到 AS9929），或叠加专线。
+:::
 
-**Q5：`ignoreClientBandwidth` 该不该开？**
+::: details Q5：ignoreClientBandwidth 该不该开？
 不建议开。开启后服务端忽略客户端上报的带宽，按服务端 `bandwidth` 配置统一限速，多用户场景下会互相挤压。仅在单用户独占节点时可考虑。
+:::
 
-**Q6：Hysteria 2 的 QUIC 流量会被运营商识别限速吗？**
+::: details Q6：Hysteria 2 的 QUIC 流量会被运营商识别限速吗？
 会。部分省网对高 PPS UDP 做令牌桶整形。缓解手段：开启 `obfs`（salamander 混淆）、降低 `keepAlivePeriod` 到 10s 减少空包、把 MTU 提到 1350 减少分片数。实测可把触发限速的概率降低约 40%。
+:::
 
 ---
 

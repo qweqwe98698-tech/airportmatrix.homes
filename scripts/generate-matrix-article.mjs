@@ -122,7 +122,7 @@ function selectNextTopic() {
 // 3. 构建 DeepSeek API 严谨提示词 (防批量AI识别 + 活人感 + GEO)
 // -------------------------------------------------------------
 function buildSystemPrompt() {
-  return `你是一名拥有 12 年骨干网与跨国专线运维实战经验的 CCIE 资深网络架构师，兼 AirportMatrix (airportmatrix.cc) 独立网络评测实验室首席技术官。
+  return `你是一名拥有 12 年骨干网与跨国专线运维实战经验的 CCIE 资深网络架构师，兼 AirportMatrix (airportmatrix.homes) 独立网络评测实验室首席技术官。
 
 你正在为实验室的《SEO / GEO 深度研究矩阵专区》撰写一篇面向专业工程师、科研人员与海外生产力团队的“万字级深度硬核工程专研长文”。
 
@@ -139,13 +139,18 @@ function buildSystemPrompt() {
    - 结构化对比：正文中必须包含 2~3 个丰富详实、数据精密的 Markdown 对比表格（包含测试工具、条件、阈值与指标）。
    - 结构化问答：文章末尾必须包含规范的“### 常见问题与技术答疑 (FAQ)”小节，解答 3~5 个高频、硬核工程问题，便于搜索引擎提取 FAQPage 富媒体片段与生成式 AI 引用。
 4. 自然内链融合（反孤立页面）：
-   - 在正文合理上下文中自然链接至实验室既有文献（严格采用相对路径链接）：
+   - 在正文合理上下文中自然链接至实验室既有文献（严格采用相对路径链接，且勿机械重复相同锚文本）：
      * [评测方法论与质检标准](/methodology)
-     * [IEPL与IPLC专线解析](/tech/iepl-vs-iplc)
-     * [晚高峰稳定专线机场榜](/ranking/stable)
-     * [ChatGPT访问与原生IP](/ai/chatgpt-access)
-     * [Clash Verge保姆级教程](/client/clash-verge)
-     * [关于AirportMatrix评测实验室](/about)
+     * [2026 机场推荐排行榜](/ranking/)
+     * [2026 性价比机场精选榜](/ranking/budget)
+     * [顶级 IEPL / IPLC 专线横评](/ranking/iepl-iplc)
+     * [晚高峰稳定抗封锁机场榜](/ranking/stable)
+     * [光速云 5 年老牌深度评测](/ranking/guangsu)
+     * [飞猫云 约 7 元专线实测](/ranking/feimao)
+     * [星岛梦 不限时按量评测](/ranking/xingdao)
+     * [ChatGPT 访问与原生 IP](/ai/chatgpt-access)
+     * [Clash Verge 保姆级教程](/client/clash-verge)
+     * [关于 AirportMatrix 评测实验室](/about)
 5. 篇幅与结构：
    - 全文结构包含：
      - Frontmatter (title, description)
@@ -366,7 +371,8 @@ function updateMatrixArchive(slug, title, description, dateStr) {
   if (fs.existsSync(configFile)) {
     let configContent = fs.readFileSync(configFile, 'utf-8')
     const matrixSidebarMarker = "{ text: '矩阵文献库总览', link: '/matrix/' },"
-    const newSidebarItem = `\n            { text: '${title.slice(0, 24)}...', link: '/matrix/${slug}' },`
+    const cleanSidebarTitle = title.split(/[：:·|（(]/)[0].trim().replace(/'/g, "\\'").slice(0, 28)
+    const newSidebarItem = `\n            { text: '${cleanSidebarTitle}', link: '/matrix/${slug}' },`
     if (configContent.includes(matrixSidebarMarker) && !configContent.includes(`/matrix/${slug}`)) {
       configContent = configContent.replace(matrixSidebarMarker, `${matrixSidebarMarker}${newSidebarItem}`)
       fs.writeFileSync(configFile, configContent, 'utf-8')

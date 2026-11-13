@@ -162,17 +162,22 @@ Netflix 的 OCA 部署仍在向边缘下沉，Embedded OCA 的覆盖率提升意
 
 ## 七、常见问题与技术答疑 (FAQ)
 
-### Q1：为什么 DNS 返回的 OCA IP 是本地 ISP，实际播放却仍然降档？
+::: details Q1：为什么 DNS 返回的 OCA IP 是本地 ISP，实际播放却仍然降档？
 OCA 命中只解决“就近缓存”，不解决“跨境带宽”。若会话实际走跨境隧道而 OCA 在本地，数据仍需回源到 AWS，回源链路拥塞会导致 ABR 降档。判定方法是 `mtr` 看回源路径丢包，而非仅看 OCA RTT。
 
-### Q2：ECS 透传为什么会影响 OCA 命中率？
+:::
+::: details Q2：ECS 透传为什么会影响 OCA 命中率？
 权威 DNS 依赖 ECS 中的客户端子网判定地理归属。递归 DNS 若不透传 ECS，权威 DNS 只能按递归 DNS 自身 IP 应答，容易把会话引导到错误区域的 OCA。实测关闭 ECS 后命中率从 91% 降到 63%。
 
-### Q3：QUIC（HTTP/3）流量如何纳入分流策略？
+:::
+::: details Q3：QUIC（HTTP/3）流量如何纳入分流策略？
 QUIC 走 UDP 443，基于五元组的 DNS 分流对其无效。需在路由层按目的 IP 段（Netflix OCA 前缀）打标走指定出口，或在客户端侧禁用 HTTP/3 回落 TCP。抓包确认方法：`tcpdump -i any udp port 443`。
 
-### Q4：Scamalytics 风险分多少以下才算安全？
+:::
+::: details Q4：Scamalytics 风险分多少以下才算安全？
 实验室统计口径为 < 20 为低风险，20–40 为中风险，> 40 为高风险。风险分 < 20 的住宅 IP 跨区成功率 94.3%，机房 IP 即使风险分低也因 ASN 类型被单独标记，成功率仍受限。
 
-### Q5：Netflix 与 Disney+ 的跨区方案能否复用？
+:::
+::: details Q5：Netflix 与 Disney+ 的跨区方案能否复用？
 DNS 分流规则可按域名复用，但出口 IP 需分别验证：Disney+ 的 4K 码率上限更高（16–25 Mbps），对丢包更敏感；两者风控权重不同，Netflix 对注册地与发卡行校验更严。建议按服务分别做 IP 信誉与链路实测。
+:::

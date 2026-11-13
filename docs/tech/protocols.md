@@ -37,3 +37,20 @@ Reality 技术直接借用海外合规大型网站（如苹果、微软、雅虎
 
 ### 3. Hysteria2 (弱网/恶劣网络救星)
 基于定制版 QUIC 协议（UDP 传输），内置激进的 BBR 拥塞控制算法。在丢包率高达 20%~30% 的劣质公网环境中，Hysteria2 依然能通过多倍发包跑满几百兆带宽，极度适合移动/校园网等容易限速丢包的网络环境。
+
+---
+
+## ❓ 代理协议选型常见问答 (FAQ)
+
+::: details 1. 新手选机场时应该优先选 VLESS 还是 Shadowsocks 2022？
+如果机场本身跑在真正的 **IEPL / IPLC 内网专线**上，两者速度都很稳：VLESS 在全平台现代内核兼容性与 TLS 抗干扰上更具优势（代表品牌如 [光速云](/ranking/guangsu)、[速界](/ranking/sujie)、[一翻云](/ranking/yifanyun)）；Shadowsocks 2022 / AEAD 则胜在手机端轻量省电（如 [飞猫云](/ranking/feimao)、[微风网络](/ranking/weifeng)）。
+:::
+
+::: details 2. Shadowrocket、Clash Verge Rev 都支持这些新协议吗？
+支持。只要将客户端升级到 2025–2026 年的最新版 Mihomo (Clash Meta) 内核或 Shadowrocket，即可原生兼容 Shadowsocks 2022、VLESS Reality、Trojan 与 Hysteria2。详见 [全平台客户端配置指南](/client/)。
+:::
+
+## 🔗 相关深度文献与榜单
+- [工程基准实测：Shadowsocks 2022 与 VLESS Reality 性能对比](/matrix/ss2022-vless-reality-performance-benchmarks)
+- [查看 2026 机场推荐 42 家完整榜单](/ranking/)
+- [查看 2026 性价比机场推荐榜](/ranking/budget)

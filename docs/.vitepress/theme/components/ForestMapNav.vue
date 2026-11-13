@@ -60,10 +60,10 @@ const mapNodes = [
   },
   {
     icon: '💰',
-    title: '平价与省钱专区',
-    badge: 'P2 套餐',
-    link: '/cheap/',
-    desc: '10元内月付低价机场、按量计费不限时流量包与 2026 最新独家优惠码。'
+    title: '性价比与省钱专区',
+    badge: '高性价比',
+    link: '/ranking/budget',
+    desc: '14.9~20元真实月付与约7元/月年付专线横评，附按量不限时与优惠码。'
   },
   {
     icon: '📱',
@@ -81,10 +81,10 @@ const mapNodes = [
   },
   {
     icon: '⚡',
-    title: '专线技术与协议科普',
-    badge: 'P5 技术',
-    link: '/tech/',
-    desc: 'IEPL vs IPLC 专线本质差异、Shadowsocks / VLESS / Hysteria2 深度解析。'
+    title: '顶级 IEPL 专线与技术',
+    badge: '顶级专线',
+    link: '/ranking/iepl-iplc',
+    desc: '物理内网专线横评，深入解析 IEPL vs IPLC 与现代加密协议性能。'
   },
   {
     icon: '🚨',
@@ -94,11 +94,11 @@ const mapNodes = [
     desc: '节点全红/超时、TIMEOUT、订阅更新失败、本地代理异常一键排查。'
   },
   {
-    icon: '🎁',
-    title: '免费机场与节点大全',
-    badge: '免费流量',
-    link: '/free/',
-    desc: '每日免费节点、长期试用订阅合集与防隐私泄露安全避坑全指南。'
+    icon: '🛡️',
+    title: '低门槛试用与避坑',
+    badge: '安全选型',
+    link: '/free/trial',
+    desc: '对比注册试用、1元尝鲜与公共节点风险，安全验证晚高峰真实速度。'
   },
   {
     icon: '🌐',

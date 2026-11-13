@@ -53,6 +53,28 @@ features:
 <!-- 实时横评罗盘与测速图交互组件 -->
 <AirportCompare />
 
+<div class="my-6 p-4 sm:p-5 rounded-2xl bg-[#F4FBF6] border border-[#D8EADB]">
+  <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+    <h3 class="text-sm font-bold text-[#233826] m-0">🗂️ Top 10 核心主推与 42 家档案速览直达</h3>
+    <a href="/cheap/coupon" class="text-xs font-semibold text-[#2E7D52] hover:underline">查看全部 42 家优惠码总汇 →</a>
+  </div>
+  <div class="flex flex-wrap gap-2 text-xs">
+    <a href="/ranking/guangsu" class="px-2.5 py-1 rounded-lg bg-white border border-[#D8EADB] text-[#233826] hover:border-[#78B890]">⚡ 光速云</a>
+    <a href="/ranking/muguang" class="px-2.5 py-1 rounded-lg bg-white border border-[#D8EADB] text-[#233826] hover:border-[#78B890]">🌅 暮光加速</a>
+    <a href="/ranking/feimao" class="px-2.5 py-1 rounded-lg bg-white border border-[#D8EADB] text-[#233826] hover:border-[#78B890]">🐱 飞猫云</a>
+    <a href="/ranking/weifeng" class="px-2.5 py-1 rounded-lg bg-white border border-[#D8EADB] text-[#233826] hover:border-[#78B890]">🍃 微风网络</a>
+    <a href="/ranking/xingdao" class="px-2.5 py-1 rounded-lg bg-white border border-[#D8EADB] text-[#233826] hover:border-[#78B890]">🏝️ 星岛梦</a>
+    <a href="/ranking/yinxingren" class="px-2.5 py-1 rounded-lg bg-white border border-[#D8EADB] text-[#233826] hover:border-[#78B890]">🥷 隐形人</a>
+    <a href="/ranking/ermao" class="px-2.5 py-1 rounded-lg bg-white border border-[#D8EADB] text-[#233826] hover:border-[#78B890]">🐱 二猫云</a>
+    <a href="/ranking/wuyou" class="px-2.5 py-1 rounded-lg bg-white border border-[#D8EADB] text-[#233826] hover:border-[#78B890]">🛡️ 无忧链接(含解锁图)</a>
+    <a href="/ranking/weitu" class="px-2.5 py-1 rounded-lg bg-white border border-[#D8EADB] text-[#233826] hover:border-[#78B890]">🐰 唯兔云</a>
+    <a href="/ranking/firefly" class="px-2.5 py-1 rounded-lg bg-white border border-[#D8EADB] text-[#233826] hover:border-[#78B890]">✨ Firefly 萤火虫</a>
+    <a href="/ranking/kuaili" class="px-2.5 py-1 rounded-lg bg-white border border-[#D8EADB] text-[#233826] hover:border-[#78B890]">🦝 快狸(9G实测)</a>
+    <a href="/ranking/yuzhou" class="px-2.5 py-1 rounded-lg bg-white border border-[#D8EADB] text-[#233826] hover:border-[#78B890]">🌌 宇宙云(9G实测)</a>
+    <a href="/ranking/" class="px-2.5 py-1 rounded-lg bg-[#2E7D52] text-white font-semibold hover:opacity-90">📋 42 家完整天梯与专题 →</a>
+  </div>
+</div>
+
 <!-- 金色专线光纤脉络 · 翡翠水晶节点监控组件 -->
 <CrystalNodesNetwork />
 
@@ -106,8 +128,8 @@ features:
 3. **检查客户端兼容生态与协议现代化程度**：  
    优质机场通常全面支持 Shadowsocks 2022、VLESS-XTLS、Trojan 等现代抗干扰协议，并能完美兼容 **Clash Verge Rev、Shadowrocket (小火箭)、v2rayN、sing-box** 等主流客户端，提供一键订阅导入与自动化更新节点。
 
-4. **查看客服工单系统与节点冗余带宽**：  
-   靠谱的机场通常储备 **30%~50% 以上的带宽冗余池**，并具备专业技术客服团队在 1 小时内响应节点故障与线路调度。
+4. **按真实月度消费选档，避免盲目追逐“免费或超低价”**：  
+   预算有限但追求长期稳定时，优先在 [2026 性价比机场推荐榜](/ranking/budget) 对比透明套餐：轻度科研可选约 7 元级年付折算（如 [飞猫云](/ranking/feimao)、[微风网络](/ranking/weifeng)），低频备用首选不限时按量（[星岛梦](/ranking/xingdao)），追求重度体验与物理低延迟则可参考 [顶级 IEPL 专线横评](/ranking/iepl-iplc)。
 
 ---
 
