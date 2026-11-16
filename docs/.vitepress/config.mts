@@ -3,7 +3,7 @@ import { pagefindPlugin } from 'vitepress-plugin-pagefind'
 import fs from 'fs'
 import path from 'path'
 
-const SITE_HOST = 'airportmatrix.homes'
+const SITE_HOST = 'airportmatrix.lol'
 const SITE_URL = `https://${SITE_HOST}`
 
 export default defineConfig({
@@ -25,12 +25,12 @@ export default defineConfig({
           let changefreq = 'weekly'
 
           // 首页最高权重
-          if (item.url === `${SITE_URL}/` || item.url === SITE_URL) {
+          if (!item.url || item.url === '/' || item.url === 'index.html' || item.url === `${SITE_URL}/` || item.url === SITE_URL) {
             priority = 1.0
             changefreq = 'daily'
           }
           // 一级核心频道与排行榜
-          else if (/https:\/\/airportmatrix\.homes\/(ranking|cheap|client|matrix|free|ai|tech|website|faq)\/?$/.test(item.url)) {
+          else if (/(?:^|\/)(ranking|cheap|client|matrix|free|ai|tech|website|faq)\/?$/.test(item.url)) {
             priority = 0.9
             changefreq = 'daily'
           }
@@ -367,7 +367,7 @@ export default defineConfig({
         if (hrefIndex >= 0) {
           const href = tokens[idx].attrs[hrefIndex][1];
           if (/^https?:\/\//i.test(href)) {
-            if (!href.includes(SITE_HOST) && !href.includes('airportmatrix.cc') && !href.includes('github.com')) {
+            if (!href.includes(SITE_HOST) && !href.includes('github.com')) {
               const isAff = /aff|register|code=|invite|\.cc|\.com\/#\/\?|\/register\?/i.test(href);
               const relIndex = tokens[idx].attrIndex('rel');
               const targetIndex = tokens[idx].attrIndex('target');

@@ -1,6 +1,6 @@
 ---
 title: 隐私政策与数据安全声明 | 全球机场 (AirportMatrix)
-description: 全球机场 (AirportMatrix) 隐私政策、静态站点零个人数据收集原则、Cookie说明与第三方服务条款。
+description: 全球机场 (AirportMatrix) 隐私政策与数据安全合规声明。秉持设计即隐私与零个人身份信息收集原则（Zero-PII），纯静态架构杜绝私有数据库泄露风险，明确阐述CDN匿名边缘访问日志安全规范、本地主题偏好LocalStorage说明及第三方外部链接免责条款。
 ---
 
 # 🔒 隐私政策与数据安全声明
@@ -62,5 +62,5 @@ description: 全球机场 (AirportMatrix) 隐私政策、静态站点零个人�
 
 若您对本隐私政策有任何疑问、异议或合规咨询，请通过以下专属渠道与我们取得联系：
 
-* **隐私合规信箱**：`admin@airportmatrix.homes`
+* **隐私合规信箱**：`admin@airportmatrix.lol`
 * **处理时效**：我们将在 5 个工作日内对合规问询作出正式答复。

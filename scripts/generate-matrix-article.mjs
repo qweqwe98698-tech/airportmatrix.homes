@@ -119,10 +119,49 @@ function selectNextTopic() {
 }
 
 // -------------------------------------------------------------
-// 3. 构建 DeepSeek API 严谨提示词 (防批量AI识别 + 活人感 + GEO)
+// 3. 构建 DeepSeek API 严谨提示词 (防批量AI识别 + 多态结构大纲 + GEO)
 // -------------------------------------------------------------
-function buildSystemPrompt() {
-  return `你是一名拥有 12 年骨干网与跨国专线运维实战经验的 CCIE 资深网络架构师，兼 AirportMatrix (airportmatrix.homes) 独立网络评测实验室首席技术官。
+function buildSystemPrompt(topicItem) {
+  const pillar = topicItem?.pillar || '通用'
+  let structurePrompt = `
+      - 架构背景与跨境骨干通信物理现状
+      - 底层拓扑与协议架构（提供清晰的 ASCII 或 Mermaid 架构图）
+      - 核心指标测试方法论与多运营商实测对比（数据对比大表）
+      - 核心配置调优与攻防实战配置
+      - 常见误区剖析与故障排查自救指南
+      - 综合选型决策指南与长效演进建议
+      - 常见问题与技术答疑 (FAQ)`
+
+  if (pillar.includes('专线') || pillar.includes('路由')) {
+    structurePrompt = `
+      - 跨境骨干物理链路演进与网络工程现实
+      - 物理光纤拓扑、BGP 宣告与二层传输架构（ASCII/Mermaid 拓扑图）
+      - 三大运营商骨干晚高峰时延、丢包与抖动实测（全维度量化对比大表）
+      - 路由收敛调优与企业级网络实战配置（指令与路由策略）
+      - 跨洋光缆中断与链路震荡应急排查自救手册
+      - 场景化选型决策矩阵与长期架构建议
+      - 常见问题与技术答疑 (FAQ)`
+  } else if (pillar.includes('AI') || pillar.includes('合规')) {
+    structurePrompt = `
+      - 平台风控审查与环境指纹识别机制剖析
+      - IP 纯净度与特征指纹检测技术体系（检测流程图与指标）
+      - 主流大模型/电商平台风控对抗实测指标矩阵（数据实测大表）
+      - 零封号静态网络隔离环境搭建与关键配置
+      - 账号封禁与环境异常紧急自检自救指南
+      - 跨境生产力选型标准与风险控制策略
+      - 常见问题与技术答疑 (FAQ)`
+  } else if (pillar.includes('协议') || pillar.includes('性能')) {
+    structurePrompt = `
+      - 传输协议演进脉络与长肥管道物理痛点
+      - 核心加密算法与拥塞控制数学原理（协议工作流图）
+      - 恶劣弱网与晚高峰 QoS 丢包极限穿透测试（吞吐与 CPU 开销大表）
+      - 内核参数 sysctl 调优与客户端实战部署配置
+      - 典型握手失败与连接重置排查决策树
+      - 适用工作负载分析与横向选型建议
+      - 常见问题与技术答疑 (FAQ)`
+  }
+
+  return `你是一名拥有 12 年骨干网与跨国专线运维实战经验的 CCIE 资深网络架构师，兼 AirportMatrix (airportmatrix.lol) 独立网络评测实验室首席技术官。
 
 你正在为实验室的《SEO / GEO 深度研究矩阵专区》撰写一篇面向专业工程师、科研人员与海外生产力团队的“万字级深度硬核工程专研长文”。
 
@@ -152,15 +191,8 @@ function buildSystemPrompt() {
      * [Clash Verge 保姆级教程](/client/clash-verge)
      * [关于 AirportMatrix 评测实验室](/about)
 5. 篇幅与结构：
-   - 全文结构包含：
-     - Frontmatter (title, description)
-     - 一、引言与物理工程现实（网络通信痛点与真实代价）
-     - 二、底层物理拓扑与协议架构（提供清晰的 ASCII 或 Mermaid 架构图）
-     - 三、核心指标测试方法论与多运营商实测对比（数据对比大表）
-     - 四、网络攻防实战与关键配置（具体指令、路由规则或核心代码配置）
-     - 五、常见误区剖析与故障排查自救指南（步骤化排查流程）
-     - 六、长效演进与企业/个人选型建议
-     - 七、常见问题与技术答疑 (FAQ)
+   - 全文结构必须结合具体课题自然展开，参考大纲骨架如下（根据课题灵活命名二级标题）：
+${structurePrompt}
    - 正文字数充实饱满，详述每一个技术分支，杜绝一笔带过。`
 }
 
@@ -209,7 +241,7 @@ async function callDeepSeek(topicItem) {
   const payload = {
     model: 'deepseek-chat',
     messages: [
-      { role: 'system', content: buildSystemPrompt() },
+      { role: 'system', content: buildSystemPrompt(topicItem) },
       { role: 'user', content: buildUserPrompt(topicItem) }
     ],
     temperature: 0.6,

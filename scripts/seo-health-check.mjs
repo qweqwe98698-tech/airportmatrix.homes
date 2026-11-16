@@ -8,8 +8,8 @@ const rootDir = path.resolve(__dirname, '..')
 const distDir = path.join(rootDir, 'docs', '.vitepress', 'dist')
 const publicDir = path.join(rootDir, 'docs', 'public')
 
-const DOMAIN = 'https://airportmatrix.homes'
-const INDEXNOW_KEY = '6852be576ce04ed19719c02d582b180a'
+const DOMAIN = 'https://airportmatrix.lol'
+const INDEXNOW_KEY = 'e598b46fc3c942649ab17816f1ee0f15'
 
 console.log('\n======================================================')
 console.log('🌿 启动 SEO 防掉索引与发布安全门禁检查 (SEO Health Check)')

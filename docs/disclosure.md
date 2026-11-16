@@ -1,6 +1,6 @@
 ---
 title: 推广与商业赞助披露 | 全球机场 (AirportMatrix)
-description: 全球机场 (AirportMatrix) 商业化运营声明、返利链接 (Affiliate) 规范、佣金不影响购买价格承诺与编辑独立准则。
+description: 全球机场 (AirportMatrix) 商业赞助披露与返利链接运营透明声明。依据美国FTC指南与搜索引擎赞助链接规范，详尽公开分布式机房测速资金来源、Affiliate佣金机制、编辑独立性准则及承诺返利绝不增加读者购买成本、绝不因商业分成影响评测排名。
 ---
 
 # 📢 推广与商业赞助披露

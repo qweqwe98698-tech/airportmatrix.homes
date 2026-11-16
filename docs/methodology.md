@@ -1,6 +1,6 @@
 ---
 title: 评测方法论与质检标准 | 全球机场 (AirportMatrix)
-description: AirportMatrix 独立实验室测试流程、网络量化指标体系、晚高峰压测标准与流媒体/AI风控解锁验证方案。
+description: AirportMatrix 全球机场评测实验室权威方法论与网络质检标准。全面公开晚高峰丢包压测（MTR 500次采样）、延迟抖动标准差、单线程8K吞吐、原生双ISP住宅IP风控欺诈库筛查及流媒体与ChatGPT解锁全流程，杜绝虚假跑分，秉持数据真实与两轨分级核验。
 ---
 
 # 📊 评测方法论与质检标准
