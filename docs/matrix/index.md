@@ -64,6 +64,14 @@ description: 全球机场 (AirportMatrix) 深度技术矩阵专题库。聚焦BG
 
 <!-- MATRIX_ARTICLES_START -->
 
+### 📄 [2026 跨境骨干协议与专线链路调优进阶实战：BGP 策略、双 ISP 冗余与丢包抑制的工程解剖](/matrix/advanced-cross-border-network-optimization-mww03l2b)
+- **发布日期**：2026-11-25 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
+- **核心摘要**：基于上海电信 CN2/163、北京联通 AS9929/AS4837、广州移动 CMI 三地分布式探针的抓包与 MTR 实测，拆解 2026 年 IEPL 专线的二层传输架构、BGP 宣告路径与晚高峰丢包机理。给出双 ISP 冗余切换阈值、MSS/MTU 分片调优参数、光缆中断应急排查流程与场景化选型矩阵，附 3 组量化对比表与硬核 FAQ。
+- [👉 阅读万字长文全文](/matrix/advanced-cross-border-network-optimization-mww03l2b)
+
+---
+
+
 ### 📄 [2026 跨境网络协议与全球骨干专线链路调优进阶实战：BGP 选路、IEPL 拓扑与双 ISP 丢包抑制](/matrix/advanced-cross-border-network-optimization-mwq6qkm2)
 - **发布日期**：2026-11-21 | **专题方向**：硬核网络工程 | **GEO状态**：已索引
 - **核心摘要**：基于上海电信 CN2/163、北京联通 AS9929/AS4837、广州移动 CMI 三地分布式探针的抓包与 MTR 实测，拆解 2026 年跨境骨干的物理时延下限、BGP 宣告策略、IEPL 二层传输架构与双 ISP 冗余切换逻辑，给出晚高峰丢包抑制的可落地调优参数与应急排查路径。
